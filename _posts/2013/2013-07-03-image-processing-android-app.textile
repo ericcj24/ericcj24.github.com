@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Image Processing on Android"
+tags: [Android,DSP,signal processing,Image Processing]
+author_name: Jian Chen
+
+---
+
+p=. !/images/posts/2013-07-03/ThomasFearnley_Pergola_with_Orange.jpeg!
+
+This image processing app features "histogram":http://en.wikipedia.org/wiki/Histogram and RGB coloring. 
+
+The application's main frame is developed on Android Eclipse platform (Android SDK), I also used a NDK package to embed C code in JAVA to do the image processing part.
+
+This project is part of the Embedded DSP class, the code could be found "here":https://github.com/ericcj24/Image-Processing-Android-App .
