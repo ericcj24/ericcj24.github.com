@@ -10,7 +10,7 @@ Every year we watched from the news about wildfire in western part of the US. It
 
 Following graph shows the implementation of my solution to wildfire prevention and monitoring: 
 
-p=. !{max-width:40%}/images/posts/2013-07-04/Slide3.jpg!
+p=. !{max-width:50%}/images/posts/2013-07-04/Slide3.jpg!
 
 My design includes two major modules: the ground computer hub and the UAV monitor unit.
 The UAV unit equips with:

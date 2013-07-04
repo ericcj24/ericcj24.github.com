@@ -11,12 +11,12 @@ This image processing app features "histogram":http://en.wikipedia.org/wiki/Hist
 
 The application's main frame is developed on Android Eclipse platform (Android SDK), I also used a NDK package to embed C code in JAVA to do the image processing part.
 
-p=. !{max-width:40%}/images/posts/2013-07-03/rgb_color.png!
+p=. !{max-width:50%}/images/posts/2013-07-03/rgb_color.png!
 
-This screenshot shows the app with the RGB color option chosen
+<p align="center">This screenshot shows the app with the RGB color option chosen</p>
 
-p=. !{max-width:40%}/images/posts/2013-07-03/histogram.png!
+p=. !{max-width:55%}/images/posts/2013-07-03/histogram.png!
 
-This screenshot shows the app with the histogram option chosen, as left half of the image has a clearer detail of the object in the far distance
+<p align="center">This screenshot shows the app with the histogram option chosen, as left half of the image has a clearer detail of the object in the far distance</p>
 
 This project is part of the Embedded DSP class, the code could be found "here":https://github.com/ericcj24/Image-Processing-Android-App .
