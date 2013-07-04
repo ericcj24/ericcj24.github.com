@@ -9,3 +9,5 @@ author_name: Jian Chen
 p=. !{max-width:80%}/images/posts/2013-07-03/JessevanDijk.jpg!
 
 Hello World
+
+(photo courtesy of "Jesse van Dijk":http://jessevandijkart.com/ )
