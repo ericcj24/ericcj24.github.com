@@ -6,8 +6,8 @@ author_name: Jian Chen
 
 ---
 
-p=. !{max-width:30%}/images/posts/2013-07-03/rgb_color.png!
-p=. !/images/posts/2013-07-03/histogram.png!
+p=. !{max-width:40%}/images/posts/2013-07-03/rgb_color.png!
+	!{max-width:40%}/images/posts/2013-07-03/histogram.png!
 
 This image processing app features "histogram":http://en.wikipedia.org/wiki/Histogram and RGB coloring. 
 
