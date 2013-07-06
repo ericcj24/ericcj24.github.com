@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Karaoke Game Android App"
+title: "Karaoke Game on Android"
 tags: [android app]
 author_name: Jian Chen
 
