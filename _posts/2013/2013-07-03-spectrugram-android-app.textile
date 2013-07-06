@@ -17,4 +17,4 @@ pic 1 shows the spectrogram of human voice, with different harmonics and intensi
 
 The program's sampling frequency is set at 8000Hz, thus it could detect highest frequency of 4000Hz without aliasing. 
 
-The code of this program could be found "here":https://github.com/ericcj24/Spectrogram-DSP-Android-App
+This is part of the Embedded Digital Signal Processing (DSP) lab, the code of this program could be found "here":https://github.com/ericcj24/Spectrogram-DSP-Android-App
