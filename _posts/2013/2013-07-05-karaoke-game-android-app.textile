@@ -16,9 +16,50 @@ p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png!
 p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png!
 <p align="center">end of the game page</p>
 
+h3. Overview
+
 This application is an extension to the original spectrogram application. When people are singing to the application, by calculating the autocorrelation of the sound recorded, we could find the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song, thus it could guarantee the correctness of the pitches. Every human pitch matching to a reference pitch would gain one point, at the end of the song, a total score would be displayed.
 
 During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
+
+h3. MatLab simulation
+
+
+{% highlight matlab %}
+function [ y ] = proc( x,f )
+
+% f: sampling frequency
+
+% filter
+% f_pi/pi = f/4Khz
+% f_pi = 2pi/range
+% range = 8KHz/f = indx_max - indx_sec_max
+% human vocal range: 75 ~ 300 Hz
+% range: 8000/500 ~ 8000/75 => floor 16 ~ 107
+lowr = floor(f/500); %300
+upr = ceil(f/75);
+
+x_cor = xcorr(x);
+x_filt = x_cor;
+
+[xmax, po] = max(x_filt);
+x_filt(1:lowr+po) = 0;
+x_filt(po+upr+1:end) = 0;
+[xmax1,pmax] = max(x_filt);
+
+y = f/(pmax-po);
+
+% figure
+% plot(x_filt,'r');
+% hold on
+% plot(x_cor,'b');
+% hold off
+
+end
+
+{% endhighlight %}
+
+
 
 This is really a funny project that combines signal processing theory with practical gaming experience.
 
