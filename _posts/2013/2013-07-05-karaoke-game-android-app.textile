@@ -43,7 +43,34 @@ MATLAB function for autocorrelation and pitch finding
 
 {% highlight matlab %}
 function [ y ] = proc( x,f )
+% f: sampling frequency
 
+% filter
+% f_pi/pi = f/4Khz
+% f_pi = 2pi/range
+% range = 8KHz/f = indx_max - indx_sec_max
+% human vocal range: 75 ~ 300 Hz
+% range: 8000/500 ~ 8000/75 => floor 16 ~ 107
+lowr = floor(f/500); %300
+upr = ceil(f/75);
+
+x_cor = xcorr(x);
+x_filt = x_cor;
+
+[xmax, po] = max(x_filt);
+x_filt(1:lowr+po) = 0;
+x_filt(po+upr+1:end) = 0;
+[xmax1,pmax] = max(x_filt);
+
+y = f/(pmax-po);
+
+% figure
+% plot(x_filt,'r');
+% hold on
+% plot(x_cor,'b');
+% hold off
+
+end
 
 {% endhighlight %}
 
