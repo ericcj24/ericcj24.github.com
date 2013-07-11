@@ -52,8 +52,6 @@ MATLAB function for voice detection
 
 {% highlight matlab %}
 function [ y ] = voidet(x)
-% tested up thresh-hold by doing square, sum over 256 samples
-
 x2 = x.^2;
 xs = sum(x2);
 
