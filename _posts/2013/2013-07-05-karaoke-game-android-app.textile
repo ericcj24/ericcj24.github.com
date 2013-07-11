@@ -18,25 +18,37 @@ p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png!
 
 h3. Overview
 
-This application is an extension to the original spectrogram application. When people are singing to the application, by calculating the autocorrelation of the sound recorded, we could find the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song, thus it could guarantee the correctness of the pitches. Every human pitch matching to a reference pitch would gain one point, at the end of the song, a total score would be displayed.
+This application is an extension to the original spectrogram application. When people are singing to the microphone, the application calculating the autocorrelation of the sound recorded, it finds the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song (piano would generate accurate pitch, thus this file, which recored and processed with MATLAB, could be serve as reference). Every matching between human voice and the reference pitch would gain one point, at the end of the song, a total score would be displayed.
+Some key concept may be useful during the signal processing part are: "autocorrelation":https://en.wikipedia.org/wiki/Autocorrelation , "voice detection":http://en.wikipedia.org/wiki/Voice_activity_detection
 
-During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
+h3. MATLAB simulation
 
-h3. MatLab simulation
+MATLAB main function call
+{% highlight matlab %}
+numdatablc = size(a4)/256; % number of data blocks, each block has 256 points, store in variable a4
+pdata1 = zeros(1,numdatablc); % initial return array
+for i=0:numdatablc-1
+    temp = a4(i*256+1:(i+1)*256);
+    if voidet(temp) % do voice detection
+        pdata1(i+1) = proc(temp,f); % do autocorrelation
+    else
+        pdata1(i+1) = 0;
+    end
+end
+{% endhighlight %}
 
-
+MATLAB code for autocorrelation and pitch finding
 {% highlight matlab %}
 function [ y ] = proc( x,f )
 
 % f: sampling frequency
-
 % filter
 % f_pi/pi = f/4Khz
 % f_pi = 2pi/range
 % range = 8KHz/f = indx_max - indx_sec_max
-% human vocal range: 75 ~ 300 Hz
+% human vocal range: 75 ~ 500 Hz
 % range: 8000/500 ~ 8000/75 => floor 16 ~ 107
-lowr = floor(f/500); %300
+lowr = floor(f/500);
 upr = ceil(f/75);
 
 x_cor = xcorr(x);
@@ -48,18 +60,34 @@ x_filt(po+upr+1:end) = 0;
 [xmax1,pmax] = max(x_filt);
 
 y = f/(pmax-po);
-
-% figure
-% plot(x_filt,'r');
-% hold on
-% plot(x_cor,'b');
-% hold off
-
 end
-
 {% endhighlight %}
 
+MATLAB code for voice detection
+{% highlight matlab %}
+function [ y ] = voidet( x)
+% tested up thresh-hold by doing square, sum over 256 samples
 
+x2 = x.^2;
+xs = sum(x2);
+
+if xs > 50000000 %2.56
+    y = 1;
+else
+    y = 0;
+end
+end
+{% endhighlight %}
+
+p=. !{max-width:50%}/images/posts/2013-07-05/piano_tst.jpg!
+<p align="center">showing the calculated pitch from piano recording</p>
+
+p=. !{max-width:50%}/images/posts/2013-07-05/song_processed.jpg!
+<p align="center">song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p>
+
+h3. Android app development
+
+During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
 
 This is really a funny project that combines signal processing theory with practical gaming experience.
 
