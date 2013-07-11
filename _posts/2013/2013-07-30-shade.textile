@@ -6,8 +6,8 @@ author_name: Jian Chen
 
 ---
 
-p=. <img src="http://graphics8.nytimes.com/images/2008/02/13/nyregion/13gates.2.span.jpg">
-
+p=. !{max-width:80%}/images/posts/2013-07-30/gates_title.jpg!
+<p align="center">photo courtesy: Mary Altaffer/Associated Press</p>
 
 When it comes to travel with your family in the park on a sunny Sunday, people always come to appreciate that shaded area under the tree, or beside the building. 
 
