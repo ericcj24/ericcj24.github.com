@@ -24,6 +24,7 @@ Some key concept may be useful during the signal processing part are: "autocorre
 h3. MATLAB simulation
 
 MATLAB main function call
+
 {% highlight matlab %}
 numdatablc = size(a4)/256; % number of data blocks, each block has 256 points, store in variable a4
 pdata1 = zeros(1,numdatablc); % initial return array
@@ -39,6 +40,7 @@ end
 
 
 MATLAB function for autocorrelation and pitch finding
+
 {% highlight matlab %}
 function [ y ] = proc( x,f )
 
@@ -67,6 +69,7 @@ end
 
 
 MATLAB function for voice detection
+
 {% highlight matlab %}
 function [ y ] = voidet(x)
 % tested up thresh-hold by doing square, sum over 256 samples
@@ -82,7 +85,7 @@ end
 end
 {% endhighlight %}
 
-p=. !{max-width:50%}/images/posts/2013-07-05/piano_tst.jpg!
+p=. !{max-width:50%}/images/posts/2013-07-05/piano_test.jpg!
 <p align="center">showing the calculated pitch from piano recording</p>
 
 p=. !{max-width:50%}/images/posts/2013-07-05/song_processed.jpg!
