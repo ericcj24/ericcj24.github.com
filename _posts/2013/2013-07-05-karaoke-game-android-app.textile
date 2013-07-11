@@ -64,12 +64,6 @@ x_filt(po+upr+1:end) = 0;
 
 y = f/(pmax-po);
 
-% figure
-% plot(x_filt,'r');
-% hold on
-% plot(x_cor,'b');
-% hold off
-
 end
 
 {% endhighlight %}
