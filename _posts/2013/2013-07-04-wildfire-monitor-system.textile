@@ -13,6 +13,7 @@ Following graph shows the implementation of my solution to wildfire prevention a
 p=. !{max-width:50%}/images/posts/2013-07-04/Slide3.jpg!
 
 h3. Design Overview
+
 My design includes two major modules: the ground computer hub and the UAV monitor unit.
 
 The UAV unit equips with:
@@ -27,13 +28,15 @@ Computer hub features:
 * Human monitoring in front of computer
 * Google Map API to help map out the ground of wildfire
 
-h3. Implementation of the project:
+h3. Implementation of the project
+
 The project would be implemented to each local forestry administration. Each location would have one ground unit, and one UAV in charge of sweeping a certain area.
 At the beginning stage, UAV would proceed a preliminary sweep to map-out heat-spots from human habitation, and non-threaten source, the data from the first sweep would be processed with Google Map API to make a reference map. 
 Future routinely sweep data would be compared to this reference map on the fly. If a new heat-spot occurs, the UAV would take a picture of the scene and send the picture together with the GPS coordinates back the base station. 
 In base station, human worker would investigate the picture, assess the situation and make further decision on either to send out firefighter-jets to put out the fire.
 
-h3. Some interesting challenges may occur:
+h3. Some interesting challenges may occur
+
 * how to make more fuel-efficiency UAVs (solar panel, battery)
 * design low energy consume GPS circuit & microprocessor
 * most market existed GPS module output standard NMEA string, convert(A/D) and decipher this information into GPS coordinates
