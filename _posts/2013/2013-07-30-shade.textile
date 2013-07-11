@@ -6,7 +6,8 @@ author_name: Jian Chen
 
 ---
 
-p=. !{max-width:80%}src:http://graphics8.nytimes.com/images/2008/02/13/nyregion/13gates.2.span.jpg!
+p=. !{max-width:80%}img src="http://graphics8.nytimes.com/images/2008/02/13/nyregion/13gates.2.span.jpg"!
+
 
 When it comes to travel with your family in the park on a sunny Sunday, people always come to appreciate that shaded area under the tree, or beside the building. 
 
@@ -15,7 +16,7 @@ Art Duo "Christo and Jeanne-Claude":https://en.wikipedia.org/wiki/Christo_and_Je
 They first proposed the project in 1979, but it was not approved until 2005.
 
 "The Gate":http://www.christojeanneclaude.net/projects/the-gates?images=completed#.Ud7zaD7TVcQ, project for central park, New York City, 2005
-Also on "wikipedia":https://en.wikipedia.org/wiki/Christo_and_Jeanne-Claude#The_Gates
+Also on "wikipedia":https://en.wikipedia.org/wiki/Christo_and_Jeanne-Claude#The_Gates and "New York Times":http://www.nytimes.com/ref/arts/design/GATES-REF.html
 
 Technology should also create a better living environment and inspire creativity.
 
