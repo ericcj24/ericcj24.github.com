@@ -52,17 +52,14 @@ function [ y ] = proc( x,f )
 % range: 8000/500 ~ 8000/75 => floor 16 ~ 107
 lowr = floor(f/500); %300
 upr = ceil(f/75);
-
 x_cor = xcorr(x);
 x_filt = x_cor;
-
 [xmax, po] = max(x_filt);
 x_filt(1:lowr+po) = 0;
 x_filt(po+upr+1:end) = 0;
 [xmax1,pmax] = max(x_filt);
 y = f/(pmax-po);
 end
-
 {% endhighlight %}
 
 
@@ -72,7 +69,6 @@ MATLAB function for voice detection
 function [ y ] = voidet(x)
 x2 = x.^2;
 xs = sum(x2);
-
 if xs > 50000000 %2.56
     y = 1;
 else
@@ -85,9 +81,11 @@ p=. !{max-width:50%}/images/posts/2013-07-05/piano_test.jpg!
 <p align="center">showing the calculated pitch from piano recording</p>
 
 p=. !{max-width:50%}/images/posts/2013-07-05/song_processed.jpg!
-<p align="center">song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p>
+<p align="center">alphabet song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p>
 
 h3. Android app development
+
+p=. !{max-width:50%}/images/posts/2013-07-05/flowchart.jpg!
 
 During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
 
