@@ -27,7 +27,7 @@ MATLAB main function call
 
 {% highlight matlab %}
 numdatablc = size(a4)/256; % number of data blocks, each block has 256 points, store in variable a4
-pdata1 = zeros(1,numdatablc); % initial return array
+pdata1 = zeros(1,numdatablc); % initialize return array
 for i=0:numdatablc-1
     temp = a4(i*256+1:(i+1)*256);
     if voidet(temp) % do voice detection
@@ -48,9 +48,9 @@ function [ y ] = proc( x,f )
 % f_pi/pi = f/4Khz
 % f_pi = 2pi/range
 % range = 8KHz/f = indx_max - indx_sec_max
-% human vocal range: 75 ~ 300 Hz
+% human vocal range: 75 ~ 500 Hz
 % range: 8000/500 ~ 8000/75 => floor 16 ~ 107
-lowr = floor(f/500); %300
+lowr = floor(f/500); 
 upr = ceil(f/75);
 x_cor = xcorr(x);
 x_filt = x_cor;
