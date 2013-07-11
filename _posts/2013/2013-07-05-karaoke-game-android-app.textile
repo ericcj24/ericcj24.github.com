@@ -37,7 +37,8 @@ for i=0:numdatablc-1
 end
 {% endhighlight %}
 
-MATLAB code for autocorrelation and pitch finding
+
+MATLAB function for autocorrelation and pitch finding
 {% highlight matlab %}
 function [ y ] = proc( x,f )
 
@@ -61,11 +62,13 @@ x_filt(po+upr+1:end) = 0;
 
 y = f/(pmax-po);
 end
+
 {% endhighlight %}
 
-MATLAB code for voice detection
+
+MATLAB function for voice detection
 {% highlight matlab %}
-function [ y ] = voidet( x)
+function [ y ] = voidet(x)
 % tested up thresh-hold by doing square, sum over 256 samples
 
 x2 = x.^2;
