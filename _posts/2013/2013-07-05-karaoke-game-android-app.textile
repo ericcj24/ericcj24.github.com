@@ -44,7 +44,6 @@ MATLAB function for autocorrelation and pitch finding
 {% highlight matlab %}
 function [ y ] = proc( x,f )
 % f: sampling frequency
-
 % filter
 % f_pi/pi = f/4Khz
 % f_pi = 2pi/range
@@ -61,9 +60,7 @@ x_filt = x_cor;
 x_filt(1:lowr+po) = 0;
 x_filt(po+upr+1:end) = 0;
 [xmax1,pmax] = max(x_filt);
-
 y = f/(pmax-po);
-
 end
 
 {% endhighlight %}
