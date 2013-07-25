@@ -9,7 +9,7 @@ author_name: Jian Chen
 
 h3. Overview
 
-API stands for "Application Programming Interface":http://en.wikipedia.org/wiki/,Application_programming_interface. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web API enables a third party program to access online data servers like NPR (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR's API, in the future, I may also post some more complex usage, like access your tweeter API which requires oauth2 authentication.
+API stands for "Application Programming Interface":http://en.wikipedia.org/wiki/,Application_programming_interface. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web API enables a third party program to access online data servers like NPR (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR's API, in the future, I may also post some more complex usage, like access your twitter API which requires oauth2 authentication.
 
 h3. Python code
 
