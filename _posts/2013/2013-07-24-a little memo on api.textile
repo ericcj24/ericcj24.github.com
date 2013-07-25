@@ -1,0 +1,43 @@
+---
+layout: post
+title: "A little learning on API"
+tags: [API]
+author_name: Jian Chen
+
+---
+
+
+h3. Overview
+
+API stands for "Application Programming Interface":http://en.wikipedia.org/wiki/,Application_programming_interface. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web API enables a third party program to access online data servers like NPR (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR's API, in the future, I may also post some more complex usage, like access your tweeter API which requires oauth2 authentication.
+
+h3. Python code
+
+Python offers wonderful library support for http usage
+Python has several version of urllib library: urllib, urllib2, and requests (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.
+
+{% highlight python %}
+import requests
+import pprint
+query_params = { 'apikey': 'YOUR API KEY',
+		'phrase': 'holiday season',
+		'start_date':'2012-12-12',
+		'end_date':'2012-12-14',
+        'state':'CA'}
+
+endpoint = 'http://capitolwords.org/api/text.json'
+response = requests.get( endpoint, params=query_params)
+data = response.json()
+pprint.pprint(data)
+print data["num_found"]
+{% endhighlight %}
+
+This simple example is excerpt from the wonderful online programming tutorial website, "Codecademy":http://www.codecademy.com/ ,they offer various entry level programming practice for different programming language, and recently they launched entry level API practices. 
+A little explanation to the code: 
+you get information you wanted by, basically, say piece together a unique URL, then use HTTP method either 'post' or 'get' (basic HTTP methods are 'get', 'post', 'put', and 'delete') you could receive the correspond information you requested, the format of the data package usually are JSON. Now, the unique URL we made, through the combination of 'endpoint' and 'query_params' is http://capitolwords.org/api/text.json?apikey=YOU_API_KEY&phrase=holiday+season&start_date=2012-12-12&end_date=2012-12-14&state=CA, this is basically telling the server that I am looking for any record, that a California senator spoke at congress between Dec 12, 2012 and Dec 14, 2012, and mentioned the phrase 'holiday season', and the server should return the record in JSON format. 
+
+a little note that, see the line where you call requests, you could use different HTTP methods just by changing the .get to .post following the requests command.
+
+A big data era is ahead of us, now write your API programs, inspire yourself with more ideas of how data could be reorganized to serve our life better :)
+
+
