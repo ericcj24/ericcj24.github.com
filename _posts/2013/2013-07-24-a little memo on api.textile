@@ -14,7 +14,7 @@ API stands for "Application Programming Interface":http://en.wikipedia.org/wiki/
 h3. Python code
 
 Python offers wonderful library support for http usage
-Python has several version of urllib library: urllib, urllib2, and requests (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.
+Python has several version of urllib library: urllib, urllib2, and "requests":http://docs.python-requests.org/en/latest/ (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.
 
 {% highlight python %}
 import requests
