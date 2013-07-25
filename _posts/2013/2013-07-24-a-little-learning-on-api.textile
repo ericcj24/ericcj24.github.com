@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A little learning on API"
+title: "A Little Learning on API"
 tags: [API]
 author_name: Jian Chen
 
