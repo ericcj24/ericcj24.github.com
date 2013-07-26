@@ -3,7 +3,7 @@ layout: post
 title: "Image Processing on Android"
 tags: [Android,DSP,signal processing,Image Processing,OpenCV]
 author_name: Jian Chen
-
+author_uri: ericcj24.github.io
 ---
 
 

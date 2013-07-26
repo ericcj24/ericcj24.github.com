@@ -3,7 +3,7 @@ layout: post
 title: "Wildfire Monitor System: a project proposal"
 tags: [UAV,google map api]
 author_name: Jian Chen
-
+author_uri: ericcj24.github.io
 ---
 
 Every year we watched from the news about wildfire in western part of the US. It costed lots of money and human resource to fight those vicious natural disaster. After watching the news that 19 firefighters had died during a recent wildfire in Arizona, I started to think about how we could approach this problem from a technology angle.

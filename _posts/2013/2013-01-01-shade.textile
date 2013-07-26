@@ -3,7 +3,7 @@ layout: post
 title: "Shade"
 tags: [future,urban planning, architecture]
 author_name: Jian Chen
-
+author_uri: ericcj24.github.io
 ---
 
 p=. !{max-width:80%}/images/posts/2013-07-30/gates_title.jpg!

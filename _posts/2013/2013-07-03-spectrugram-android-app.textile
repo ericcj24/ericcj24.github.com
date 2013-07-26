@@ -3,7 +3,7 @@ layout: post
 title: "Spectrogram on Android"
 tags: [Android,DSP,signal processing]
 author_name: Jian Chen
-
+author_uri: ericcj24.github.io
 ---
 
 A spectrogram could display several qualities of sound in a graphical way. It could map out the frequency of the sound component, color-code its intensity at each frequency.
