@@ -13,10 +13,17 @@ Douban is a popular Chinese social cultural site. It integrates Book reading, mo
 From my past couple day's experience, though most Chinese social websites open their API, but they all have different 'tricks' to successfully send your http post and get commands. I had been confused on Douban's photo uploading format for a while, and now I was hoping to share the points you should be careful when uploading your photo using urllib and urllib2 libraries from python.
 
 h3. Encode your photo
-The format to encode the photo to pass to Douban could be very restrict. The following format works:
 
-{% highlight xml%}
-------------0x14026e4be72\r\nContent-Disposition: form-data; name="text"\r\n\r\nDraw\r\n------------0x14026e4be72\r\nContent-Disposition: form-data; name="image"; filename="hidden"\r\nContent-Length: 2019551\r\nContent-Type: image/jpeg\r\nContent-Transfer-Encoding: binary\n\r\nYOUR_IMAGE BYTES
+The format to encode the photo to pass to Douban could be very restrict. The following format works:
+{% highlight xml %}
+------------0x14026e4be72\r\n
+Content-Disposition: form-data; name="text"\r\n\r\n
+Draw\r\n------------0x14026e4be72\r\n
+Content-Disposition: form-data; name="image"; filename="hidden"\r\n
+Content-Length: 2019551\r\n
+Content-Type: image/jpeg\r\n
+Content-Transfer-Encoding: binary\n\r\n
+YOUR_IMAGE BYTES
 {% endhighlight %}
 
 Things you should really keep mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file's extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. 
@@ -25,7 +32,7 @@ Also, 0x14026e4be72 is just the boundary variable you could generate randomly.
 Following is the python code:
 test_douban class
 {% highlight python %}
-import gzip, time, hmac, base64, hashlib, urllib, urllib2, logging, mimetypes, collections, datetime
+import gzip, time, hmac, base64, hashlib, urllib, urllib2, mimetypes
 
 def _encode_multipart(**kw):
     ' build a multipart/form-data body with randomly generated boundary '
