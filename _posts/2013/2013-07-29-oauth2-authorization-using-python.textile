@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OAuth2 Authorization Use Python"
+title: "OAuth2 Authorization Using Python"
 tags: [API]
 author_name: Jian Chen
 author_uri: ericcj24.github.io
@@ -29,7 +29,7 @@ params = urllib.urlencode(v)
 url = DOUBAN_AUTHORIZATION_URI+params
 # now, go to your browser, go to your generated url, click on accept authorization, then you would be redirect to REDIRECT_URI+code=YOUR_AUTHORIZATION_CODE, the YOUR_AUTHORIZATION_CODE would be appended at the end of that address
 code = YOUR_AUTHORIZATION_CODE
-# to this point, you finished first step, obtain authorization code
+# up to this point, you finished first step, obtain authorization code
 v2 = {'client_id':APP_KEY, 'client_secret':APP_SECRET','redirect_uri':REDIRECT_URI, 'grant_type':'authorization_code','code':code}
 url2 = DOUBAN_ACCESS_TOKEN_URI
 r = requests.post(v2,data = v2)
@@ -38,6 +38,6 @@ r_json = r.json()
 # now you could see response in json format, with access_token in it
 {% endhighlight %}
 
-Just remember that first stage use HTTP method GET, second stage use HTTP method POST.(that means you have to pass your encoded v2 to data, instead of params!!!)
+Just remember that first stage use HTTP method GET, second stage use HTTP method POST (that means you have to pass your encoded v2 to data, instead of params!!!)
 
 Now you should have your access_token, go nuts!
