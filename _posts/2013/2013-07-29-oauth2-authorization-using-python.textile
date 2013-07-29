@@ -38,6 +38,6 @@ r_json = r.json()
 # now you could see response in json format, with access_token in it
 {% endhighlight %}
 
-Just remember that first stage use HTTP method GET, second stage use HTTP method POST (that means you have to pass your encoded v2 to data, instead of params!!!)
+Just remember that first stage uses HTTP method GET, second stage uses HTTP method POST (that means you have to pass your encoded v2 to data, instead of params!!!)
 
 Now you should have your access_token, go nuts!
