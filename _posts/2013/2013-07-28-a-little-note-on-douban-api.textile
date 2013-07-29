@@ -18,13 +18,13 @@ The format to encode the photo to pass to Douban could be very restrict. The fol
 
 {% highlight xml %}
 ------------0x14026e4be72\r\n
-Content-Disposition: form-data; name="text"\r\n\r\n
-Draw\r\n------------0x14026e4be72\r\n
+Content-Disposition: form-data; name="text"\r\n\r\nDraw\r\n------------0x14026e4be72\r\n
 Content-Disposition: form-data; name="image"; filename="hidden"\r\n
 Content-Length: 2019551\r\n
 Content-Type: image/jpeg\r\n
 Content-Transfer-Encoding: binary\n\r\n
 YOUR_IMAGE BYTES
+\r\n------------0x140297140d1\r\nContent-Disposition: form-data; name="source"\r\n\r\n0587f3ba88aad4801097db2f9a007d80\r\n------------0x140297140d1--\r\n
 {% endhighlight %}
 
 Things you should really keep mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file's extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. 
