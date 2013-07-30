@@ -32,7 +32,7 @@ code = YOUR_AUTHORIZATION_CODE
 # up to this point, you finished first step, obtain authorization code
 v2 = {'client_id':APP_KEY, 'client_secret':APP_SECRET','redirect_uri':REDIRECT_URI, 'grant_type':'authorization_code','code':code}
 url2 = DOUBAN_ACCESS_TOKEN_URI
-r = requests.post(v2,data = v2)
+r = requests.post(url2,data = v2)
 r.status_code # should be 200 if everything is right
 r_json = r.json()
 # now you could see response in json format, with access_token in it
