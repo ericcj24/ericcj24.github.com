@@ -9,7 +9,7 @@ author_uri: ericcj24.github.io
 
 h3. Overview
 
-"Requests":http://docs.python-requests.org/en/latest/ is a great python lib to handle http calls, it simple and easy to intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests treat http errors as exceptions (it has a status_code to reflect the error, but won't actually raise the exception flag). So I implement a customized error class, combined with a if condition sentence, I manage to catch the http error as an exception.
+"Requests":http://docs.python-requests.org/en/latest/ is a great python lib to handle http calls, it is simple and intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests does not treat http errors as exceptions (it has a status_code to reflect the error, but won't actually raise the exception flag). So I implement a customized error class, combined with a if condition statement, I manage to catch the http error as an exception.
 
 h3. Python code
 
