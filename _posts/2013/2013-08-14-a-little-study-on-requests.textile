@@ -56,7 +56,7 @@ def c():
 	raise APIError(e.error_code, e.error, e.request)
     except Exception, err:
 	print "renren_http_call: unexpected error %s" %err
-	raise APIError(u'unkown code', str(err), None)
+	raise APIError(u'unkown code', str(err), type(err))
 
 def d():
     try:
