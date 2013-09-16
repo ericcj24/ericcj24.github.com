@@ -73,3 +73,4 @@ int main(){
 h3. Interesting Notes
 * sizeof(array), if array was the integer array passed as a parameter, the sizeof(array) would give the actual size of the pointer, not the actual size of the array, as it interprets array as pointer. (C++ pass integer arrays as pointers). so it will be helpful to pass an integer array's size info together with the array for child-function's convenience. 
 * In the binary search phase, while you are jumping around using array's index, watch out for the boundary, make sure to cover every corner.
+* Binary Search is O(logn) efficient, as half of the search space is eliminated in each iteration. 
