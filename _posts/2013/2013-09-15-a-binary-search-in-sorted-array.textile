@@ -1,0 +1,74 @@
+---
+layout: post
+title: "Binary Search in Sorted Array"
+tags: [algorithm]
+author_name: Jian Chen
+author_uri: ericcj24.github.io
+---
+
+
+h3. Overview
+This is the code that do a binary search for a value in a sorted array.
+
+h3. C++ code
+
+{% highlight c++ %}
+#include <iostream>
+using std::cout;
+
+int Find(int a[], int v, int size){
+//sizeof(a)/sizeof(a[0]) would not give the correct size of array, as sizeof(a) here gives the size of pointer, not the entire array!!!
+// that is why you need to pass size info of the array to save the trouble
+    if (a==NULL) {
+	return -1;	
+    }
+    int p=0;
+    while(size>0 && p>=0) {
+	size=size/2;
+	if (a[p] >v) {
+            p=p-size;
+	}
+	else if (a[p] <v){	
+	    if (a[p+1] == v) {
+		return p+1;
+	    }
+	    p=p+size;
+	}
+	else if (a[p] == v){
+	    return p;
+	}
+    }	
+    return -1;
+}
+
+int main(){
+    int a[4] = {1,2,3,4};
+    int sa = sizeof(a)/sizeof(a[0]);
+    cout<<"size of array a"<<sa<<'\n';
+    int a1 = Find( a, 1, sa);
+    int a2 = Find( a, 2, sa);
+    int a3 = Find( a, 3, sa);
+    int a4 = Find( a, 4, sa);
+    int a5 = Find( a, 0, sa);
+    int a6 = Find( a, 5, sa);
+
+    int b[5] = {1,2,3,4,5};
+    int sb = sizeof(b)/sizeof(b[0]);
+    cout<<"size of array b"<<sb<<'\n';
+    int b1 = Find( b, 1, sb);
+    int b2 = Find( b, 2, sb );
+    int b3 = Find( b, 3, sb );
+    int b4 = Find( b, 4, sb );
+    int b5 = Find( b, 5, sb );
+    int b6 = Find( b, 0, sb );
+    int b7 = Find( b, 6, sb );
+	
+    cout<<a1<<' '<<a2<<' '<<a3<<' '<<a4<<' '<<a5<<' '<<a6<<'\n';
+    cout<<b1<<' '<<b2<<' '<<b3<<' '<<b4<<' '<<b5<<' '<<b6<<' '<<b7<<'\n';
+    return 0;
+}
+{% endhighlight %}
+
+h3. Interesting Notes
+* sizeof(array), if array was the integer array passed as a parameter, the sizeof(array) would give the actual size of the pointer, as it interprets array as pointer. (C++ pass integer arrays as pointers). so it will be helpful to pass an integer array's size info together with the array for child-function's convenience. 
+* In the binary search phase, while you are jumping around using array's index, watch out for the boundary, make sure to cover every corner.
