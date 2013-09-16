@@ -8,6 +8,7 @@ author_uri: ericcj24.github.io
 
 
 h3. Overview
+
 This is the code that do a binary search for a value in a sorted array.
 
 h3. C++ code
