@@ -7,9 +7,9 @@ author_uri: ericcj24.github.io
 ---
 
 
-I have been doing interviews for a while now, companies I interviewed with range from big names to small inspiring start-ups. At here is a little murmuring of my reflections on it.
+I have been doing interviews for a while now, companies I interviewed with range from big names to small inspiring start-ups. Here is a little murmuring of my reflections on it.
 
-In the data structure class, we know we could traverse a tree in two basic fashion, depth-first and breadth-first, each of the traversing methods has recursive and iterative two ways to implement(well I think every recursive implementation has its iterative way to implement), in the iterative way depth-first traverse we usually use a stack as a helping data structure to help you traverse through the tree, while in breadth-first, we use a queue. 
+In the data structure class, we know we could traverse a tree in two basic fashion, depth-first and breadth-first, each of the traversing methods has recursive and iterative two ways to implement(well I think every recursive implementation has its iterative way to implement), in the iterative way depth-first traverse we usually use a stack as a helping data structure to traverse through the tree, while in breadth-first, we use a queue (a FIFO first in first out structure). 
 
 {% highlight c++ %}
 #include <iostream>
@@ -20,12 +20,13 @@ breadth_first_traversal(Node* croot){
     Node* level;
     int height;
     if (!croot){
-        q.enqueue(croot);
+	q.enqueue(croot);
 	q.enqueue(level);
         while (!q.empty()){
             Node* temp = q.dequeue();
 	    if (temp==level){
 		height++;
+	       q.enqueue(level);	
 		temp = q.dequeue();
 	    }
 	    cout<<temp->value<<' ';
