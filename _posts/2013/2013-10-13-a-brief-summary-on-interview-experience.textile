@@ -20,20 +20,20 @@ breadth_first_traversal(Node* croot){
     Node* level;
     int height;
     if (!croot){
-	q.enqueue(croot);
-	q.enqueue(level);
+        q.enqueue(croot);
+        q.enqueue(level);
         while (!q.empty()){
             Node* temp = q.dequeue();
-	    if (temp==level){
-		height++;
-	       q.enqueue(level);	
-		temp = q.dequeue();
-	    }
-	    cout<<temp->value<<' ';
-	    if(!temp->left) q.enqueue(temp->left);
-	    if(!temp->right) q.enqueue(temp->right);
-	}
-    }
+            if (temp==level){
+                height++;
+		q.enqueue(level);	
+                temp = q.dequeue();
+            }
+            cout<<temp->value<<' ';
+            if(!temp->left) q.enqueue(temp->left);
+            if(!temp->right) q.enqueue(temp->right);
+        }
+     }
 }
 
 {% endhighlight %}
