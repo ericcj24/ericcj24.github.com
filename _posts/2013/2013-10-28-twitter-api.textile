@@ -21,5 +21,5 @@ r=requests.post(u,data={'status':'hello'},auth=auth)
 {% endhighlight %}
 
 
-So you should realize that there is OAuth1 function in requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(
+So you should realize that there is OAuth1 function in Requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(
 Of course, prior to make this call, you need to create/register your Twitter app at their developer page, and set app’s authorization to both read AND write. then, you could generate your token and secret. Be sure to generate token AFTER you set app’s authorization :D Once you have all consumer_secret, consumer_key, oauth_token, and oauth_token_secret, you are set to go! Cheers!!!
