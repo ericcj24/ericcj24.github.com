@@ -8,7 +8,7 @@ author_uri: ericcj24.github.io
 
 Twitter is a little vague in terms of how you could make your first ‘hello world’ post, that’s why I am writing this post for your convenient.
 
-If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this “dude”:http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/ ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.
+If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this "dude":http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/ ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.
 
 
 {% highlight python %}
