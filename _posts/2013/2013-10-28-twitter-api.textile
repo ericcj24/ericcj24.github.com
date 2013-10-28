@@ -16,7 +16,7 @@ import requests
 from requests_oauthlib import OAuth1
 url='https://api.twitter.com/1.1/statuses/update.json'
 #i am making a tweet http post call
-auth=OAuth1('consumer_key',client_secret='CONSUMER SECRET',resource_owner_key='OAUTH TOKEN',resource_owner_secret='OAUTH TOKEN SECRET')
+auth=OAuth1('CONSUMER_KEY',client_secret='CONSUMER SECRET',resource_owner_key='OAUTH TOKEN',resource_owner_secret='OAUTH TOKEN SECRET')
 r=requests.post(u,data={'status':'hello'},auth=auth)
 {% endhighlight %}
 
