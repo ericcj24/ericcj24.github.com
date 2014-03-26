@@ -12,6 +12,8 @@ The java app utilizes apache's "httpclient library":http://hc.apache.org/httpcli
 
 The app also uses "jmathplot libary":https://code.google.com/p/jmathplot/ to help plot the data.
 
+Find project at my project "repo":https://github.com/ericcj24/bitstamp.api.monitor
+
 I will try to add more functionality in project in the following days :)
 
 Cheers
