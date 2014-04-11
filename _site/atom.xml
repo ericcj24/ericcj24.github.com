@@ -3,9 +3,26 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-04-11T01:22:03-05:00</updated>
+    <updated>2014-04-11T16:58:15-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
+    
+    <entry>
+        <title>Bitstamp API Client on Android</title>
+        
+        <link href="http://ericcj24.github.com/2014/04/11/bitstamp-api-android/"/>
+        <updated>2014-04-11T00:00:00-05:00</updated>
+        <id>ericcj24.github.com:/2014/04/11/bitstamp-api-android</id>
+        <content type="html">&lt;p&gt;I am making a simple Android app to graphically display Bitstamp&amp;#8217;s trading data through their &lt;a href=&quot;https://www.bitstamp.net/api/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The app utilizes a open source Android charting library called &lt;a href=&quot;http://androidplot.com/&quot;&gt;Androidplot&lt;/a&gt;, and a slide menu from &lt;a href=&quot;https://github.com/dmitry-zaitsev/AndroidSideMenu/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ericcj24/simple-bitstamp-api-androidclient&quot;&gt;Check it out&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
+&lt;p&gt;Cheers&lt;/p&gt;</content>
+        <author>
+            <name>Jian Chen</name>
+            <uri>ericcj24.github.io</uri>
+        </author>
+    </entry>
     
     <entry>
         <title>Bitstamp API</title>

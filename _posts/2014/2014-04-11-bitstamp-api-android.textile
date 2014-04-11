@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Bitstamp API Client on Android"
+tags: [API, Bitstamp, Android]
+author_name: Jian Chen
+author_uri: ericcj24.github.io
+---
+
+I am making a simple Android app to graphically display Bitstamp's trading data through their "API":https://www.bitstamp.net/api/.
+
+The app utilizes a open source Android charting library called "Androidplot":http://androidplot.com/, and a slide menu from "here":https://github.com/dmitry-zaitsev/AndroidSideMenu/.
+
+"Check it out":https://github.com/ericcj24/simple-bitstamp-api-androidclient
+
+I will try to add more functionality in project in the following days :)
+
+
+Cheers

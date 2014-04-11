@@ -38,6 +38,36 @@
           <div id='index'>
 
   <div class="post">
+    <h2><a href="/2013/07/24/a-little-learning-on-api/">A Little Learning on API</a></h2>
+
+    <h3>Overview</h3>
+<p><span class="caps">API</span> stands for <a href="http://en.wikipedia.org/wiki/,Application_programming_interface">Application Programming Interface</a>. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web <span class="caps">API</span> enables a third party program to access online data servers like <span class="caps">NPR</span> (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR&#8217;s <span class="caps">API</span>, in the future, I may also post some more complex usage, like access your twitter <span class="caps">API</span> which requires oauth2 authentication.</p>
+<h3>Python code</h3>
+<p>Python offers wonderful library support for http usage<br />
+Python has several version of urllib library: urllib, urllib2, and <a href="http://docs.python-requests.org/en/latest/">requests</a> (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.</p>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;apikey&#39;</span><span class="p">:</span> <span class="s">&#39;YOUR API KEY&#39;</span><span class="p">,</span>
+		<span class="s">&#39;phrase&#39;</span><span class="p">:</span> <span class="s">&#39;holiday season&#39;</span><span class="p">,</span>
+		<span class="s">&#39;start_date&#39;</span><span class="p">:</span><span class="s">&#39;2012-12-12&#39;</span><span class="p">,</span>
+		<span class="s">&#39;end_date&#39;</span><span class="p">:</span><span class="s">&#39;2012-12-14&#39;</span><span class="p">,</span>
+        <span class="s">&#39;state&#39;</span><span class="p">:</span><span class="s">&#39;CA&#39;</span><span class="p">}</span>
+
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s">&#39;http://capitolwords.org/api/text.json&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">query_params</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span>
+</code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
+A little explanation to the code: <br />
+you get information you wanted by, basically, say piece together a unique <span class="caps">URL</span>, then use <span class="caps">HTTP</span> method either &#8216;post&#8217; or &#8216;get&#8217; (basic <span class="caps">HTTP</span> methods are &#8216;get&#8217;, &#8216;post&#8217;, &#8216;put&#8217;, and &#8216;delete&#8217;) you could receive the correspond information you requested, the format of the data package usually are <span class="caps">JSON</span>. Now, the unique <span class="caps">URL</span> we made, through the combination of &#8216;endpoint&#8217; and &#8216;query_params&#8217; is http://capitolwords.org/api/text.json?apikey=YOU_API_KEY&amp;phrase=holiday+season&amp;start_date=2012-12-12&amp;end_date=2012-12-14&amp;state=CA, this is basically telling the server that I am looking for any record, that a California senator spoke at congress between Dec 12, 2012 and Dec 14, 2012, and mentioned the phrase &#8216;holiday season&#8217;, and the server should return the record in <span class="caps">JSON</span> format.</p>
+<p>a little note that, see the line where you call requests, you could use different <span class="caps">HTTP</span> methods just by changing the .get to .post following the requests command.</p>
+<p>A big data era is ahead of us, now write your <span class="caps">API</span> programs, inspire yourself with more ideas of how data could be reorganized to serve our life better :)</p>
+
+    <small class="meta">July 24, 2013 | <a href='/2013/07/24/a-little-learning-on-api/#disqus_thread'>View Comments</a></small>
+  </div>
+
+  <div class="post">
     <h2><a href="/2013/07/05/karaoke-game-android-app/">Karaoke Game on Android</a></h2>
 
     <p style="text-align:center;"><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png" style="max-width:50%;" alt="" /><br />
