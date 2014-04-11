@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jian Chen - OAuth2 Authorization Using Python </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="verify-v1" content="fI45uNHehVNiO9Dt0Fp7XnsV0Z/ozBTkPoS6RlYAe50=" />
+  <meta name="y_key" content="6c948e75a617b12d" />
+  <meta name='technorati-claim' content='8QN7CWNH8BSJ' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
+</head>
+
+<body class='blog'>
+  <div class="container">
+    <div class="row">
+      <div class="span4 sidebar affix">
+        <div class="well">
+          <h2 class='site-title'>
+            <a href="http://ericcj24.github.io">Jian Chen</a>
+          </h2>
+
+          <p>warp speed 9.9 !</p>
+
+          <ul id="navigation" class="clearfix">
+            <li class='about'><a href='/about/'>About</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2014_2_2.pdf" rel="me" class="url">resume</a></li>
+            <li class='archives'><a href='/archives/'>Archives</a></li>
+            <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
+            <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="span8 main offset4">
+        <div class="well">
+          <div class="post">
+    <h1>OAuth2 Authorization Using Python</h1>
+    <h3>Overview</h3>
+<p>As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.</p>
+<h3>Python Demo</h3>
+<p>Taking social website Douban as an example<br />
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">SCOPE</span> <span class="o">=</span> <span class="s">&#39;douban_basic_common,shuo_basic_r,shuo_basic_w&#39;</span> <span class="c"># getting more access by adding more parameters</span>
+<span class="n">APP_KEY</span> <span class="o">=</span> <span class="n">YOUR_APP_KEY</span> <span class="c"># sometimes called API_KEY, obtain upon registration for API</span>
+<span class="n">APP_SECRET</span> <span class="o">=</span> <span class="n">YOUR_APP_SECRET</span> <span class="c"># sometimes called API_SECRET, obtain upon registration for API</span>
+<span class="n">REDIRECT_URI</span> <span class="o">=</span> <span class="n">YOUR_CALLBACK_URI</span> <span class="c"># this http address would be the address to receive authorization code, and access_token returned from website</span>
+<span class="n">DOUBAN_RESPONSE_TYPE</span> <span class="o">=</span> <span class="s">&#39;code&#39;</span>
+<span class="n">DOUBAN_AUTHORIZATION_URI</span> <span class="o">=</span> <span class="s">&quot;https://www.douban.com/service/auth2/&quot;</span>
+<span class="n">DOUBAN_ACCESS_TOKEN_URI</span> <span class="o">=</span> <span class="s">&quot;https://www.douban.com/service/auth2/&quot;</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;client_id&#39;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span> <span class="s">&#39;redirect_uri&#39;</span><span class="p">:</span><span class="n">REDIRECT_URI</span><span class="p">,</span><span class="s">&#39;response_type&#39;</span><span class="p">:</span><span class="s">&#39;code&#39;</span><span class="p">,</span><span class="s">&#39;scope&#39;</span><span class="p">:</span><span class="n">SCOPE</span><span class="p">}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">DOUBAN_AUTHORIZATION_URI</span><span class="o">+</span><span class="n">params</span>
+<span class="c"># now, go to your browser, go to your generated url, click on accept authorization, then you would be redirect to REDIRECT_URI+code=YOUR_AUTHORIZATION_CODE, the YOUR_AUTHORIZATION_CODE would be appended at the end of that address</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">YOUR_AUTHORIZATION_CODE</span>
+<span class="c"># up to this point, you finished first step, obtain authorization code</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;client_id&#39;</span><span class="p">:</span><span class="n">APP_KEY</span><span class="p">,</span> <span class="s">&#39;client_secret&#39;</span><span class="p">:</span><span class="n">APP_SECRET</span><span class="s">&#39;,&#39;</span><span class="n">redirect_uri</span><span class="s">&#39;:REDIRECT_URI, &#39;</span><span class="n">grant_type</span><span class="s">&#39;:&#39;</span><span class="n">authorization_code</span><span class="s">&#39;,&#39;</span><span class="n">code</span><span class="s">&#39;:code}</span>
+<span class="n">url2</span> <span class="o">=</span> <span class="n">DOUBAN_ACCESS_TOKEN_URI</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">v2</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="c"># should be 200 if everything is right</span>
+<span class="n">r_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="c"># now you could see response in json format, with access_token in it</span>
+</code></pre></div></p>
+<p>Just remember that first stage uses <span class="caps">HTTP</span> method <span class="caps">GET</span>, second stage uses <span class="caps">HTTP</span> method <span class="caps">POST</span> (that means you have to pass your encoded v2 to data, instead of params!!!)</p>
+<p>Now you should have your access_token, go nuts!</p>
+</div>
+
+<small class="meta">July 29, 2013</small>
+
+<div id="comments">
+  <h3>Comments</h3>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jianchens';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+        </div>
+      </div>
+
+      <div id="bottom" class="span8 offset4">
+        <div class="well">
+          <a href="/about/">About</a> |
+          <a href="/archives/">Archives</a> |
+          <a href="/acknowledgment/">Courtesy</a> |
+          <a href="/atom.xml">feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- Google Analytics Code 
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9947336-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+
+  </script>  -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-42183274-1', 'ericcj24.github.io');
+        ga('send', 'pageview');
+        
+    </script>
+    
+</body>
+</html>
+

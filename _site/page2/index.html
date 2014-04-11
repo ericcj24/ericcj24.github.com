@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jian Chen - Home </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="verify-v1" content="fI45uNHehVNiO9Dt0Fp7XnsV0Z/ozBTkPoS6RlYAe50=" />
+  <meta name="y_key" content="6c948e75a617b12d" />
+  <meta name='technorati-claim' content='8QN7CWNH8BSJ' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
+</head>
+
+<body class='blog'>
+  <div class="container">
+    <div class="row">
+      <div class="span4 sidebar affix">
+        <div class="well">
+          <h2 class='site-title'>
+            <a href="http://ericcj24.github.io">Jian Chen</a>
+          </h2>
+
+          <p>warp speed 9.9 !</p>
+
+          <ul id="navigation" class="clearfix">
+            <li class='about'><a href='/about/'>About</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2014_2_2.pdf" rel="me" class="url">resume</a></li>
+            <li class='archives'><a href='/archives/'>Archives</a></li>
+            <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
+            <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="span8 main offset4">
+        <div class="well">
+          <div id='index'>
+
+  <div class="post">
+    <h2><a href="/2013/07/04/wildfire-monitor-system/">Wildfire Monitor System: a project proposal</a></h2>
+
+    <p>Every year we watched from the news about wildfire in western part of the US. It costed lots of money and human resource to fight those vicious natural disaster. After watching the news that 19 firefighters had died during a recent wildfire in Arizona, I started to think about how we could approach this problem from a technology angle.</p>
+<p>Following graph shows the implementation of my solution to wildfire prevention and monitoring:</p>
+<p style="text-align:center;"><img src="/images/posts/2013-07-04/Slide3.jpg" style="max-width:50%;" alt="" /></p>
+<h3>Design Overview</h3>
+<p>My design includes two major modules: the ground computer hub and the <span class="caps">UAV</span> monitor unit.<br />
+The <span class="caps">UAV</span> unit equips with:</p>
+<ul>
+	<li>heat sensor</li>
+	<li><span class="caps">GPS</span> chip</li>
+	<li>microprocessor</li>
+	<li>RF transmitter</li>
+	<li>High resolution camera</li>
+</ul>
+<p>Computer hub features:</p>
+<ul>
+	<li>RF receiver</li>
+	<li>Human monitoring in front of computer</li>
+	<li>Google Map <span class="caps">API</span> to help map out the ground of wildfire</li>
+</ul>
+<h3>Implementation of the project</h3>
+<p>The project would be implemented to each local forestry administration. Each location would have one ground unit, and one <span class="caps">UAV</span> in charge of sweeping a certain area.<br />
+At the beginning stage, <span class="caps">UAV</span> would proceed a preliminary sweep to map-out heat-spots from human habitation, and non-threaten source, the data from the first sweep would be processed with Google Map <span class="caps">API</span> to make a reference map. <br />
+Future routinely sweep data would be compared to this reference map on the fly. If a new heat-spot occurs, the <span class="caps">UAV</span> would take a picture of the scene and send the picture together with the <span class="caps">GPS</span> coordinates back the base station. <br />
+In base station, human worker would investigate the picture, assess the situation and make further decision on either to send out firefighter-jets to put out the fire.</p>
+<h3>Some interesting challenges may occur</h3>
+<ul>
+	<li>how to make more fuel-efficiency UAVs (solar panel, battery)</li>
+	<li>design low energy consume <span class="caps">GPS</span> circuit &amp; microprocessor</li>
+	<li>most market existed <span class="caps">GPS</span> module output standard <span class="caps">NMEA</span> string, convert(A/D) and decipher this information into <span class="caps">GPS</span> coordinates</li>
+	<li>design reliable RF communication between <span class="caps">UAV</span> and base</li>
+	<li>implement Google Map <span class="caps">API</span></li>
+</ul>
+
+    <small class="meta">July 04, 2013 | <a href='/2013/07/04/wildfire-monitor-system/#disqus_thread'>View Comments</a></small>
+  </div>
+
+  <div class="post">
+    <h2><a href="/2013/07/03/spectrugram-android-app/">Spectrogram on Android</a></h2>
+
+    <p>A spectrogram could display several qualities of sound in a graphical way. It could map out the frequency of the sound component, color-code its intensity at each frequency.</p>
+<p>As part of my Embedded <span class="caps">DSP</span> lab, we built this spectrogram program on Android platform. It records the sound, use <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android <span class="caps">NDK</span> package</a> to embed C code into Android program to process the sound with Fourier Transform and outputs its spectrogram.</p>
+<p style="text-align:center;"><img src="/images/posts/2013-07-03/spectrogram.png" style="max-width:50%;" alt="" /><br />
+<p align="center">pic 1</p></p>
+<p>pic 1 shows the spectrogram of human voice, with different harmonics and intensity at each harmonic</p>
+<p>The program&#8217;s sampling frequency is set at 8000Hz, thus it could detect highest frequency of 4000Hz without aliasing.</p>
+<p>This is part of the Embedded Digital Signal Processing (<span class="caps">DSP</span>) lab, the code of this program could be found <a href="https://github.com/ericcj24/Spectrogram-DSP-Android-App">here</a></p>
+
+    <small class="meta">July 03, 2013 | <a href='/2013/07/03/spectrugram-android-app/#disqus_thread'>View Comments</a></small>
+  </div>
+
+  <div class="post">
+    <h2><a href="/2013/07/03/image-processing-android-app/">Image Processing on Android</a></h2>
+
+    <p>This image processing app features <a href="http://en.wikipedia.org/wiki/Histogram">histogram</a> and <span class="caps">RGB</span> coloring.</p>
+<p>The application&#8217;s main frame is developed on Android Eclipse platform (Android <span class="caps">SDK</span>), I also used a <span class="caps">NDK</span> package to embed C++ code in <span class="caps">JAVA</span> to do the image processing part.The program has a <a href="http://opencv.org/">OpenCV</a> dependency, as the program calls some computer vision class from the OpenCV library.The successful install and run the program on Android device, a <a href="https://play.google.com/store/apps/details?id=org.opencv.engine&amp;hl=en">OpenCV Manager</a> from Google Play is also needed.</p>
+<p style="text-align:center;"><img src="/images/posts/2013-07-03/rgb_color.png" style="max-width:50%;" alt="" /></p>
+<p align="center">pic 1</p>
+<p>This screenshot (pic 1) shows the app with the <span class="caps">RGB</span> color option chosen</p>
+<p style="text-align:center;"><img src="/images/posts/2013-07-03/histogram.png" style="max-width:50%;" alt="" /><br />
+<p align="center">pic 2</p><br />
+This screenshot (pic 2) shows the app with the histogram option chosen, as left half of the image has a clearer detail of the object in the far distance</p>
+<p>This project is part of the Embedded Digital Signal Processing (<span class="caps">DSP</span>) class, the code could be found <a href="https://github.com/ericcj24/Image-Processing-Android-App">here</a> .</p>
+
+    <small class="meta">July 03, 2013 | <a href='/2013/07/03/image-processing-android-app/#disqus_thread'>View Comments</a></small>
+  </div>
+
+  <div class="post">
+    <h2><a href="/2013/07/02/hello-world/">Hello World</a></h2>
+
+    <p style="text-align:center;"><img src="/images/posts/2013-07-03/JessevanDijk.jpg" style="max-width:80%;" alt="" /></p>
+<p>Hello World</p>
+<p>(photo courtesy of <a href="http://jessevandijkart.com/">Jesse van Dijk</a> )</p>
+
+    <small class="meta">July 02, 2013 | <a href='/2013/07/02/hello-world/#disqus_thread'>View Comments</a></small>
+  </div>
+
+  <div class="post">
+    <h2><a href="/2013/01/01/shade/">Shade</a></h2>
+
+    <p style="text-align:center;"><img src="/images/posts/2013-07-30/gates_title.jpg" style="max-width:80%;" alt="" /><br />
+<p align="center">photo courtesy: Mary Altaffer/Associated Press</p></p>
+<p>When it comes to travel with your family in the park on a sunny Sunday, people always come to appreciate that shaded area under the tree, or beside the building.</p>
+<p>Art Duo <a href="https://en.wikipedia.org/wiki/Christo_and_Jeanne-Claude">Christo and Jeanne-Claude</a> who are famous for their international series of large-sale outdoor installations. They used to took years to gain their permission to put their installations in central park.I admire their artistic spirit and appreciate their wonderful effort to bring inspirations to urban life.</p>
+<p>They first proposed the project in 1979, but it was not approved until 2005.</p>
+<p><a href="http://www.christojeanneclaude.net/projects/the-gates?images=completed#.Ud7zaD7TVcQ">The Gates</a>, project for central park, New York City, 2005<br />
+Also on <a href="https://en.wikipedia.org/wiki/Christo_and_Jeanne-Claude#The_Gates">wikipedia</a> and <a href="http://www.nytimes.com/ref/arts/design/GATES-REF.html">New York Times</a></p>
+<p>Technology should also create a better living environment and inspire creativity.</p>
+
+    <small class="meta">January 01, 2013 | <a href='/2013/01/01/shade/#disqus_thread'>View Comments</a></small>
+  </div>
+
+</div>
+
+<div class='paging'>
+  
+
+  
+    <a href='/' class='newer'>Newer Posts</a>
+  
+
+  
+  <div class='clear'></div>
+</div>
+
+        </div>
+      </div>
+
+      <div id="bottom" class="span8 offset4">
+        <div class="well">
+          <a href="/about/">About</a> |
+          <a href="/archives/">Archives</a> |
+          <a href="/acknowledgment/">Courtesy</a> |
+          <a href="/atom.xml">feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- Google Analytics Code 
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9947336-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+
+  </script>  -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-42183274-1', 'ericcj24.github.io');
+        ga('send', 'pageview');
+        
+    </script>
+    
+</body>
+</html>
+

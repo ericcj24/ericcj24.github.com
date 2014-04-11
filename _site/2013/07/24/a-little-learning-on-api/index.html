@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jian Chen - A Little Learning on API </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="verify-v1" content="fI45uNHehVNiO9Dt0Fp7XnsV0Z/ozBTkPoS6RlYAe50=" />
+  <meta name="y_key" content="6c948e75a617b12d" />
+  <meta name='technorati-claim' content='8QN7CWNH8BSJ' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
+</head>
+
+<body class='blog'>
+  <div class="container">
+    <div class="row">
+      <div class="span4 sidebar affix">
+        <div class="well">
+          <h2 class='site-title'>
+            <a href="http://ericcj24.github.io">Jian Chen</a>
+          </h2>
+
+          <p>warp speed 9.9 !</p>
+
+          <ul id="navigation" class="clearfix">
+            <li class='about'><a href='/about/'>About</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2014_2_2.pdf" rel="me" class="url">resume</a></li>
+            <li class='archives'><a href='/archives/'>Archives</a></li>
+            <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
+            <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="span8 main offset4">
+        <div class="well">
+          <div class="post">
+    <h1>A Little Learning on API</h1>
+    <h3>Overview</h3>
+<p><span class="caps">API</span> stands for <a href="http://en.wikipedia.org/wiki/,Application_programming_interface">Application Programming Interface</a>. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web <span class="caps">API</span> enables a third party program to access online data servers like <span class="caps">NPR</span> (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR&#8217;s <span class="caps">API</span>, in the future, I may also post some more complex usage, like access your twitter <span class="caps">API</span> which requires oauth2 authentication.</p>
+<h3>Python code</h3>
+<p>Python offers wonderful library support for http usage<br />
+Python has several version of urllib library: urllib, urllib2, and <a href="http://docs.python-requests.org/en/latest/">requests</a> (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.</p>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;apikey&#39;</span><span class="p">:</span> <span class="s">&#39;YOUR API KEY&#39;</span><span class="p">,</span>
+		<span class="s">&#39;phrase&#39;</span><span class="p">:</span> <span class="s">&#39;holiday season&#39;</span><span class="p">,</span>
+		<span class="s">&#39;start_date&#39;</span><span class="p">:</span><span class="s">&#39;2012-12-12&#39;</span><span class="p">,</span>
+		<span class="s">&#39;end_date&#39;</span><span class="p">:</span><span class="s">&#39;2012-12-14&#39;</span><span class="p">,</span>
+        <span class="s">&#39;state&#39;</span><span class="p">:</span><span class="s">&#39;CA&#39;</span><span class="p">}</span>
+
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s">&#39;http://capitolwords.org/api/text.json&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">query_params</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span>
+</code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
+A little explanation to the code: <br />
+you get information you wanted by, basically, say piece together a unique <span class="caps">URL</span>, then use <span class="caps">HTTP</span> method either &#8216;post&#8217; or &#8216;get&#8217; (basic <span class="caps">HTTP</span> methods are &#8216;get&#8217;, &#8216;post&#8217;, &#8216;put&#8217;, and &#8216;delete&#8217;) you could receive the correspond information you requested, the format of the data package usually are <span class="caps">JSON</span>. Now, the unique <span class="caps">URL</span> we made, through the combination of &#8216;endpoint&#8217; and &#8216;query_params&#8217; is http://capitolwords.org/api/text.json?apikey=YOU_API_KEY&amp;phrase=holiday+season&amp;start_date=2012-12-12&amp;end_date=2012-12-14&amp;state=CA, this is basically telling the server that I am looking for any record, that a California senator spoke at congress between Dec 12, 2012 and Dec 14, 2012, and mentioned the phrase &#8216;holiday season&#8217;, and the server should return the record in <span class="caps">JSON</span> format.</p>
+<p>a little note that, see the line where you call requests, you could use different <span class="caps">HTTP</span> methods just by changing the .get to .post following the requests command.</p>
+<p>A big data era is ahead of us, now write your <span class="caps">API</span> programs, inspire yourself with more ideas of how data could be reorganized to serve our life better :)</p>
+</div>
+
+<small class="meta">July 24, 2013</small>
+
+<div id="comments">
+  <h3>Comments</h3>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jianchens';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+        </div>
+      </div>
+
+      <div id="bottom" class="span8 offset4">
+        <div class="well">
+          <a href="/about/">About</a> |
+          <a href="/archives/">Archives</a> |
+          <a href="/acknowledgment/">Courtesy</a> |
+          <a href="/atom.xml">feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- Google Analytics Code 
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9947336-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+
+  </script>  -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-42183274-1', 'ericcj24.github.io');
+        ga('send', 'pageview');
+        
+    </script>
+    
+</body>
+</html>
+

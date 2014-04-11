@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jian Chen - A Brief Reflection on my Interviews </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="verify-v1" content="fI45uNHehVNiO9Dt0Fp7XnsV0Z/ozBTkPoS6RlYAe50=" />
+  <meta name="y_key" content="6c948e75a617b12d" />
+  <meta name='technorati-claim' content='8QN7CWNH8BSJ' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
+</head>
+
+<body class='blog'>
+  <div class="container">
+    <div class="row">
+      <div class="span4 sidebar affix">
+        <div class="well">
+          <h2 class='site-title'>
+            <a href="http://ericcj24.github.io">Jian Chen</a>
+          </h2>
+
+          <p>warp speed 9.9 !</p>
+
+          <ul id="navigation" class="clearfix">
+            <li class='about'><a href='/about/'>About</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2014_2_2.pdf" rel="me" class="url">resume</a></li>
+            <li class='archives'><a href='/archives/'>Archives</a></li>
+            <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
+            <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="span8 main offset4">
+        <div class="well">
+          <div class="post">
+    <h1>A Brief Reflection on my Interviews</h1>
+    <p>I have been doing interviews for a while now, companies I interviewed with range from big names to small inspiring start-ups. Here is a little murmuring of my reflections on it.</p>
+<p>In the data structure class, we know we could traverse a tree in two basic fashion, depth-first and breadth-first, each of the traversing methods has recursive and iterative two ways to implement(well I think every recursive implementation has its iterative way to implement), in the iterative way depth-first traverse we usually use a stack as a helping data structure to traverse through the tree, while in breadth-first, we use a queue (a <span class="caps">FIFO</span> first in first out structure).</p>
+<div class="highlight"><pre><code class="c++"><span class="cp">#include &lt;iostream&gt;</span>
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+
+<span class="n">breadth_first_traversal</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">croot</span><span class="p">){</span>
+    <span class="n">queue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">level</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">croot</span><span class="p">){</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">croot</span><span class="p">);</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+            <span class="n">Node</span><span class="o">*</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">dequeue</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">temp</span><span class="o">==</span><span class="n">level</span><span class="p">){</span>
+                <span class="n">height</span><span class="o">++</span><span class="p">;</span>
+		<span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>	
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">dequeue</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>The brief code showed how powerful breadth-first search could be, it could help you traverse through each node of a tree, while help you keep track of the height of the tree. In my recent interview questions, I also encountered a question that ask me to implement an iterator for a general tree class, given by the short timing, I also found that the same breadth-first traverse philosophy could apply to the problem, using a queue structure as iterator, checking if the queue is empty to see if this iterator &#8216;hasNext&#8217;. And in another question, where a brief Facebook Member class is defined, which includes a name and a email address of the user, and a list of his friends (List<Member>), the question was to ask you to write a function that print out user&#8217;s friends first (level 1), then user&#8217;s friends&#8217; friends (level 2), and etc etc. You could still use the queue to help you do a breadth-first search to solve the similar problem.<br />
+Happy Halloween :D Cheers !</p>
+</div>
+
+<small class="meta">October 13, 2013</small>
+
+<div id="comments">
+  <h3>Comments</h3>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jianchens';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+        </div>
+      </div>
+
+      <div id="bottom" class="span8 offset4">
+        <div class="well">
+          <a href="/about/">About</a> |
+          <a href="/archives/">Archives</a> |
+          <a href="/acknowledgment/">Courtesy</a> |
+          <a href="/atom.xml">feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- Google Analytics Code 
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9947336-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+
+  </script>  -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-42183274-1', 'ericcj24.github.io');
+        ga('send', 'pageview');
+        
+    </script>
+    
+</body>
+</html>
+

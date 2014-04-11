@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jian Chen - Twitter API </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="verify-v1" content="fI45uNHehVNiO9Dt0Fp7XnsV0Z/ozBTkPoS6RlYAe50=" />
+  <meta name="y_key" content="6c948e75a617b12d" />
+  <meta name='technorati-claim' content='8QN7CWNH8BSJ' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" media="screen" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
+</head>
+
+<body class='blog'>
+  <div class="container">
+    <div class="row">
+      <div class="span4 sidebar affix">
+        <div class="well">
+          <h2 class='site-title'>
+            <a href="http://ericcj24.github.io">Jian Chen</a>
+          </h2>
+
+          <p>warp speed 9.9 !</p>
+
+          <ul id="navigation" class="clearfix">
+            <li class='about'><a href='/about/'>About</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2014_2_2.pdf" rel="me" class="url">resume</a></li>
+            <li class='archives'><a href='/archives/'>Archives</a></li>
+            <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
+            <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="span8 main offset4">
+        <div class="well">
+          <div class="post">
+    <h1>Twitter API</h1>
+    <p>Twitter is a little vague in terms of how you could make your first ‘hello world’ post, that’s why I am writing this post for your convenient.</p>
+<p>If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this <a href="http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/">dude</a> ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.</p>
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
+<span class="n">url</span><span class="o">=</span><span class="s">&#39;https://api.twitter.com/1.1/statuses/update.json&#39;</span>
+<span class="c">#i am making a tweet http post call</span>
+<span class="n">auth</span><span class="o">=</span><span class="n">OAuth1</span><span class="p">(</span><span class="s">&#39;CONSUMER_KEY&#39;</span><span class="p">,</span><span class="n">client_secret</span><span class="o">=</span><span class="s">&#39;CONSUMER SECRET&#39;</span><span class="p">,</span><span class="n">resource_owner_key</span><span class="o">=</span><span class="s">&#39;OAUTH TOKEN&#39;</span><span class="p">,</span><span class="n">resource_owner_secret</span><span class="o">=</span><span class="s">&#39;OAUTH TOKEN SECRET&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;status&#39;</span><span class="p">:</span><span class="s">&#39;hello&#39;</span><span class="p">},</span><span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+</code></pre></div><p>So you should realize that there is OAuth1 function in Requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(<br />
+Of course, prior to make this call, you need to create/register your Twitter app at their developer page, and set app’s authorization to both read <span class="caps">AND</span> write. then, you could generate your token and secret. Be sure to generate token <span class="caps">AFTER</span> you set app’s authorization :D Once you have all consumer_secret, consumer_key, oauth_token, and oauth_token_secret, you are set to go! Cheers!!!</p>
+</div>
+
+<small class="meta">October 28, 2013</small>
+
+<div id="comments">
+  <h3>Comments</h3>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jianchens';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+        </div>
+      </div>
+
+      <div id="bottom" class="span8 offset4">
+        <div class="well">
+          <a href="/about/">About</a> |
+          <a href="/archives/">Archives</a> |
+          <a href="/acknowledgment/">Courtesy</a> |
+          <a href="/atom.xml">feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- Google Analytics Code 
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9947336-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+          'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+
+  </script>  -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-42183274-1', 'ericcj24.github.io');
+        ga('send', 'pageview');
+        
+    </script>
+    
+</body>
+</html>
+
