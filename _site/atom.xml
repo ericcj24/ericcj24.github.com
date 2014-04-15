@@ -3,7 +3,7 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-04-11T16:58:15-05:00</updated>
+    <updated>2014-04-15T14:30:24-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -355,7 +355,7 @@ Content-Type: image/jpeg\r\n
 Content-Transfer-Encoding: binary\n\r\n
 YOUR_IMAGE BYTES
 \r\n------------0x140297140d1\r\nContent-Disposition: form-data; name=&amp;quot;source&amp;quot;\r\n\r\nYOUR_APP_KEY\r\n------------0x140297140d1--\r\n
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Things you should really keep mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file&amp;#8217;s extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. &lt;br /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Things you should really keep in mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file&amp;#8217;s extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. &lt;br /&gt;
 Also, 0&amp;#215;14026e4be72 is just the boundary variable you could generate randomly.&lt;/p&gt;
 &lt;p&gt;Following is the python code:&lt;br /&gt;
 test_douban class&lt;/p&gt;

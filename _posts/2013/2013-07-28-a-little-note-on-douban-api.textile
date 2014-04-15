@@ -27,7 +27,7 @@ YOUR_IMAGE BYTES
 \r\n------------0x140297140d1\r\nContent-Disposition: form-data; name="source"\r\n\r\nYOUR_APP_KEY\r\n------------0x140297140d1--\r\n
 {% endhighlight %}
 
-Things you should really keep mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file's extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. 
+Things you should really keep in mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file's extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. 
 Also, 0x14026e4be72 is just the boundary variable you could generate randomly.
 
 Following is the python code:
