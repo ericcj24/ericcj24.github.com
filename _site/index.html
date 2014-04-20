@@ -41,8 +41,10 @@
     <h2><a href="/2014/04/11/bitstamp-api-android/">Bitstamp API Client on Android</a></h2>
 
     <p>I am making a simple Android app to graphically display Bitstamp&#8217;s trading data through their <a href="https://www.bitstamp.net/api/"><span class="caps">API</span></a>.</p>
-<p>The app utilizes a open source Android charting library called <a href="http://androidplot.com/">Androidplot</a>, and a slide menu from <a href="https://github.com/dmitry-zaitsev/AndroidSideMenu/">here</a>.</p>
-<p><a href="https://github.com/ericcj24/simple-bitstamp-api-androidclient">Check it out</a></p>
+<p>The app utilizes a open source Android charting library called <a href="http://androidplot.com/">Androidplot</a>, and a slide menu from <a href="https://github.com/dmitry-zaitsev/AndroidSideMenu/">here</a>.<br />
+The app features AlarmManager to repeatly firing IntentService, the later&#8217;s working thread would be pulling data from Bitstamp <span class="caps">API</span> (making http calls), and if there are new data, update database (sqlite) accordingly, once database is updated, a Broadcast is sent to the main UI thread and updates the chart.</p>
+<p><strike><a href="https://github.com/ericcj24/simple-bitstamp-api-androidclient">Check it out</a></strike><br />
+new repo <a href="https://github.com/ericcj24/bitstamp-api-android1">here</a> .</p>
 <p>I will try to add more functionality in project in the following days :)</p>
 <p>Cheers</p>
 
