@@ -13,6 +13,8 @@ The app features AlarmManager to repeatly firing IntentService, the later's work
 
 <strike>"Check it out":https://github.com/ericcj24/simple-bitstamp-api-androidclient</strike>
 new repo "here":https://github.com/ericcj24/bitstamp-api-android2 .
+I have been exploiting with different designs to approach this problem, here is the newest version, check it out :) "repo":https://github.com/ericcj24/bitstamp-api-android3
+
 
 I will try to add more functionality in project in the following days :)
 
