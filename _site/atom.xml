@@ -3,7 +3,7 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-06T19:44:34-05:00</updated>
+    <updated>2014-05-06T19:45:35-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -17,7 +17,7 @@
 &lt;p&gt;The app utilizes an open source Android charting library called &lt;a href=&quot;http://androidplot.com/&quot;&gt;Androidplot&lt;/a&gt;, and a slide menu from &lt;a href=&quot;https://github.com/dmitry-zaitsev/AndroidSideMenu/&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
 The app features AlarmManager to repeatly firing IntentService, the later&amp;#8217;s working thread would be pulling data from Bitstamp &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; (making http calls), and if there are new data, update database (sqlite) accordingly, once database is updated, a Broadcast is sent to the main UI thread and updates the chart.&lt;/p&gt;
 &lt;p&gt;&lt;strike&gt;&lt;a href=&quot;https://github.com/ericcj24/simple-bitstamp-api-androidclient&quot;&gt;Check it out&lt;/a&gt;&lt;/strike&gt;&lt;br /&gt;
-new repo &lt;a href=&quot;https://github.com/ericcj24/bitstamp-api-android2&quot;&gt;here&lt;/a&gt; .&lt;br /&gt;
+&lt;strike&gt;new repo &lt;a href=&quot;https://github.com/ericcj24/bitstamp-api-android2&quot;&gt;here&lt;/a&gt; &lt;/strike&gt;&lt;br /&gt;
 I have been exploiting with different designs to approach this problem, here is the newest version, check it out :) &lt;a href=&quot;https://github.com/ericcj24/bitstamp-api-android3&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>

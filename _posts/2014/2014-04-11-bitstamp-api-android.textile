@@ -12,7 +12,7 @@ The app utilizes an open source Android charting library called "Androidplot":ht
 The app features AlarmManager to repeatly firing IntentService, the later's working thread would be pulling data from Bitstamp API (making http calls), and if there are new data, update database (sqlite) accordingly, once database is updated, a Broadcast is sent to the main UI thread and updates the chart.
 
 <strike>"Check it out":https://github.com/ericcj24/simple-bitstamp-api-androidclient</strike>
-new repo "here":https://github.com/ericcj24/bitstamp-api-android2 .
+<strike>new repo "here":https://github.com/ericcj24/bitstamp-api-android2 </strike>
 I have been exploiting with different designs to approach this problem, here is the newest version, check it out :) "repo":https://github.com/ericcj24/bitstamp-api-android3
 
 
