@@ -17,7 +17,7 @@ Service: 1, in it: AsyncTask fired to pull data from Bitstamp API and store to d
 Sqlite for transaction
 Sqlite for orderbook
 Sqlite for ticker
-ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and present the new data
+ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and presenting the new data to fragments
 TODO:sharedPreference
 
 
