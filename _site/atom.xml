@@ -3,9 +3,35 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-07T11:58:38-05:00</updated>
+    <updated>2014-05-08T00:40:01-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
+    
+    <entry>
+        <title>Bitstamp API Monitor on Android with Websocket</title>
+        
+        <link href="http://ericcj24.github.com/2014/05/08/bitstamp-api-websocket-android/"/>
+        <updated>2014-05-08T00:00:00-05:00</updated>
+        <id>ericcj24.github.com:/2014/05/08/bitstamp-api-websocket-android</id>
+        <content type="html">&lt;p&gt;Hello there!&lt;/p&gt;
+&lt;p&gt;Things are getting more interesting! I am trying Bitstamp&amp;#8217;s websocket api now. Basicly, it uses a third-party tool called &lt;a href=&quot;http://pusher.github.io/pusher-java-client/&quot;&gt;Pusher&lt;/a&gt; to open a websocket to stream all transactions in real time to your device.&lt;/p&gt;
+&lt;p&gt;Here are some specs of this version of my app:&lt;br /&gt;
+DrawerLayout&lt;br /&gt;
+Fragments: 3, for each of transaction, orderbook, and ticker&lt;br /&gt;
+Service: 1, in it: AsyncTask fired to pull data from Bitstamp &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; and store to database if first time use; after that, use pusher to open socket to listen for the streaming data, and store new data to database. This technique used both for transaction and orderbook. another handler for repeatly updating ticker info&lt;br /&gt;
+Sqlite for transaction&lt;br /&gt;
+Sqlite for orderbook&lt;br /&gt;
+Sqlite for ticker&lt;br /&gt;
+ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and present the new data&lt;br /&gt;
+&lt;span class=&quot;caps&quot;&gt;TODO&lt;/span&gt;:sharedPreference&lt;/p&gt;
+&lt;p&gt;repo &lt;a href=&quot;https://github.com/ericcj24/bitstamp-websocket-v0&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
+&lt;p&gt;Cheers&lt;/p&gt;</content>
+        <author>
+            <name>Jian Chen</name>
+            <uri>ericcj24.github.io</uri>
+        </author>
+    </entry>
     
     <entry>
         <title>Bitstamp API Client on Android</title>
