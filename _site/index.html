@@ -48,7 +48,8 @@ Fragments: 3, for each of transaction, orderbook, and ticker<br />
 Service: 1, in it: AsyncTask fired to pull data from Bitstamp <span class="caps">API</span> and store to database if first time use; after that, use pusher to open socket to listen for the streaming data, and store new data to database. This technique used both for transaction and orderbook. another handler for repeatly updating ticker info<br />
 Sqlite: 3, for each of the transaction, orderbook, and ticker<br />
 ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and presenting the new data to fragments<br />
-sharedPreference</p>
+sharedPreference<br />
+<span class="caps">TODO</span>: internet connection check on start, and resume pusher after internet reconnected</p>
 <p>repo <a href="https://github.com/ericcj24/bitstamp-websocket-v0">here</a></p>
 <p>I will try to add more functionality in project in the following days :)</p>
 <p>Cheers</p>
