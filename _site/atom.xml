@@ -3,7 +3,7 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-11T02:14:01-05:00</updated>
+    <updated>2014-05-11T15:07:42-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -23,7 +23,7 @@ Sqlite: 3, for each of the transaction, orderbook, and ticker&lt;br /&gt;
 ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and presenting the new data to fragments&lt;br /&gt;
 sharedPreference&lt;br /&gt;
 &lt;span class=&quot;caps&quot;&gt;TODO&lt;/span&gt;: internet connection check on start, and resume pusher after internet reconnected, check user setting, with connectivityManager.getActiveNetworkInfo(), isConnected(), public static final String CONNECTIVITY_ACTION.&lt;br /&gt;
-orderbook, query, union&lt;/p&gt;
+first time open without internet, would cause transaction db to be empty afterwards (bulkinsert never called)&lt;/p&gt;
 &lt;p&gt;repo &lt;a href=&quot;https://github.com/ericcj24/bitstamp-websocket-v0&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>
