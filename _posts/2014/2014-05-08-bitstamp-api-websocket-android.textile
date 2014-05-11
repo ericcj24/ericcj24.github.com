@@ -18,6 +18,7 @@ Sqlite: 3, for each of the transaction, orderbook, and ticker
 ContentProvider: 3, for each of transaction, orderbook and ticker, monitoring the change in database, and presenting the new data to fragments
 sharedPreference
 TODO: internet connection check on start, and resume pusher after internet reconnected, check user setting, with connectivityManager.getActiveNetworkInfo(), isConnected(), public static final String CONNECTIVITY_ACTION.
+orderbook, query, union
 
 repo "here":https://github.com/ericcj24/bitstamp-websocket-v0
 
