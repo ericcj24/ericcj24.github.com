@@ -22,6 +22,7 @@ first time open without internet, would cause transaction db to be empty afterwa
 
 repo "here":https://github.com/ericcj24/bitstamp-websocket-v0
 
+the app is in "Google Play Store":https://play.google.com/store/apps/details?id=edu.illinois.jchen93.bitstampwebsockettest now
 
 I will try to add more functionality in project in the following days :)
 

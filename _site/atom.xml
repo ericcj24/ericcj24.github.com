@@ -3,7 +3,7 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-11T23:29:22-05:00</updated>
+    <updated>2014-05-12T22:18:49-05:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -25,6 +25,7 @@ sharedPreference&lt;br /&gt;
 &lt;span class=&quot;caps&quot;&gt;TODO&lt;/span&gt;: internet connection check on start, and resume pusher after internet reconnected, check user setting, with connectivityManager.getActiveNetworkInfo(), isConnected(), public static final String CONNECTIVITY_ACTION.&lt;br /&gt;
 first time open without internet, would cause transaction db to be empty afterwards (bulkinsert never called)&lt;/p&gt;
 &lt;p&gt;repo &lt;a href=&quot;https://github.com/ericcj24/bitstamp-websocket-v0&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;the app is in &lt;a href=&quot;https://play.google.com/store/apps/details?id=edu.illinois.jchen93.bitstampwebsockettest&quot;&gt;Google Play Store&lt;/a&gt; now&lt;/p&gt;
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>
         <author>
