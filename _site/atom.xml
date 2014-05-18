@@ -3,7 +3,7 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-12T22:18:49-05:00</updated>
+    <updated>2014-05-18T15:53:29-07:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -11,7 +11,7 @@
         <title>Bitstamp API Monitor on Android with Websocket</title>
         
         <link href="http://ericcj24.github.com/2014/05/08/bitstamp-api-websocket-android/"/>
-        <updated>2014-05-08T00:00:00-05:00</updated>
+        <updated>2014-05-08T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2014/05/08/bitstamp-api-websocket-android</id>
         <content type="html">&lt;p&gt;Hello there!&lt;/p&gt;
 &lt;p&gt;Things are getting more interesting! I am trying Bitstamp&amp;#8217;s websocket api now. Basicly, it uses a third-party tool called &lt;a href=&quot;http://pusher.github.io/pusher-java-client/&quot;&gt;Pusher&lt;/a&gt; to open a websocket to stream all transactions in real time to your device.&lt;/p&gt;
@@ -38,7 +38,7 @@ first time open without internet, would cause transaction db to be empty afterwa
         <title>Bitstamp API Client on Android</title>
         
         <link href="http://ericcj24.github.com/2014/04/11/bitstamp-api-android/"/>
-        <updated>2014-04-11T00:00:00-05:00</updated>
+        <updated>2014-04-11T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2014/04/11/bitstamp-api-android</id>
         <content type="html">&lt;p&gt;I am making a simple Android app to graphically display Bitstamp&amp;#8217;s trading data through their &lt;a href=&quot;https://www.bitstamp.net/api/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The app utilizes an open source Android charting library called &lt;a href=&quot;http://androidplot.com/&quot;&gt;Androidplot&lt;/a&gt;, and a slide menu from &lt;a href=&quot;https://github.com/dmitry-zaitsev/AndroidSideMenu/&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;
@@ -58,7 +58,7 @@ I have been exploiting with different designs to approach this problem, &lt;a hr
         <title>Bitstamp API</title>
         
         <link href="http://ericcj24.github.com/2014/03/25/bitstamp-api/"/>
-        <updated>2014-03-25T00:00:00-05:00</updated>
+        <updated>2014-03-25T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2014/03/25/bitstamp-api</id>
         <content type="html">&lt;p&gt;I am making a simple &lt;span class=&quot;caps&quot;&gt;GUI&lt;/span&gt; java app to graphically display Bitstamp&amp;#8217;s trading data through their &lt;a href=&quot;https://www.bitstamp.net/api/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The java app utilizes apache&amp;#8217;s &lt;a href=&quot;http://hc.apache.org/httpclient-3.x/&quot;&gt;httpclient library&lt;/a&gt; to make http connection, uses &lt;a href=&quot;http://jackson.codehaus.org/&quot;&gt;Jackson&lt;/a&gt; to bind &lt;span class=&quot;caps&quot;&gt;JSON&lt;/span&gt; data to Java class and/or generic containers.&lt;/p&gt;
@@ -78,7 +78,7 @@ I have also changed the new project to a newer &lt;a href=&quot;https://github.c
         <title>Twitter API</title>
         
         <link href="http://ericcj24.github.com/2013/10/28/twitter-api/"/>
-        <updated>2013-10-28T00:00:00-05:00</updated>
+        <updated>2013-10-28T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/10/28/twitter-api</id>
         <content type="html">&lt;p&gt;Twitter is a little vague in terms of how you could make your first ‘hello world’ post, that’s why I am writing this post for your convenient.&lt;/p&gt;
 &lt;p&gt;If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this &lt;a href=&quot;http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/&quot;&gt;dude&lt;/a&gt; ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.&lt;/p&gt;
@@ -100,7 +100,7 @@ Of course, prior to make this call, you need to create/register your Twitter app
         <title>A Brief Reflection on my Interviews</title>
         
         <link href="http://ericcj24.github.com/2013/10/13/a-brief-summary-on-interview-experience/"/>
-        <updated>2013-10-13T00:00:00-05:00</updated>
+        <updated>2013-10-13T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/10/13/a-brief-summary-on-interview-experience</id>
         <content type="html">&lt;p&gt;I have been doing interviews for a while now, companies I interviewed with range from big names to small inspiring start-ups. Here is a little murmuring of my reflections on it.&lt;/p&gt;
 &lt;p&gt;In the data structure class, we know we could traverse a tree in two basic fashion, depth-first and breadth-first, each of the traversing methods has recursive and iterative two ways to implement(well I think every recursive implementation has its iterative way to implement), in the iterative way depth-first traverse we usually use a stack as a helping data structure to traverse through the tree, while in breadth-first, we use a queue (a &lt;span class=&quot;caps&quot;&gt;FIFO&lt;/span&gt; first in first out structure).&lt;/p&gt;
@@ -139,7 +139,7 @@ Happy Halloween :D Cheers !&lt;/p&gt;</content>
         <title>Binary Search in Sorted Array</title>
         
         <link href="http://ericcj24.github.com/2013/09/15/a-binary-search-in-sorted-array/"/>
-        <updated>2013-09-15T00:00:00-05:00</updated>
+        <updated>2013-09-15T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/09/15/a-binary-search-in-sorted-array</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;This is the code that do a binary search for a value in a sorted array.&lt;/p&gt;
@@ -214,7 +214,7 @@ Happy Halloween :D Cheers !&lt;/p&gt;</content>
         <title>A Little Study on Requests</title>
         
         <link href="http://ericcj24.github.com/2013/08/14/a-little-study-on-requests/"/>
-        <updated>2013-08-14T00:00:00-05:00</updated>
+        <updated>2013-08-14T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/08/14/a-little-study-on-requests</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://docs.python-requests.org/en/latest/&quot;&gt;Requests&lt;/a&gt; is a great python lib to handle http calls, it is simple and intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests does not treat http errors as exceptions (it has a status_code to reflect the error, but won&amp;#8217;t actually raise the exception flag). So I implement a customized error class, combined with a if condition statement, I manage to catch the http error as an exception.&lt;/p&gt;
@@ -285,7 +285,7 @@ Hope this helps, enjoy :)&lt;/p&gt;</content>
         <title>A Little Note on Renren API</title>
         
         <link href="http://ericcj24.github.com/2013/08/11/a-little-note-on-renren-api/"/>
-        <updated>2013-08-11T00:00:00-05:00</updated>
+        <updated>2013-08-11T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/08/11/a-little-note-on-renren-api</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;Renren is popular Chinese social website. This post introduces an easy way, and yet different from Douban&amp;#8217;s photo uploading previews introduced, to upload photo to your Renren albums with Python requests.&lt;/p&gt;
@@ -312,7 +312,7 @@ cheers!&lt;/p&gt;</content>
         <title>Thoughts on Pushing Wind Power</title>
         
         <link href="http://ericcj24.github.com/2013/08/08/thoughts-on-pushing-wind-power/"/>
-        <updated>2013-08-08T00:00:00-05:00</updated>
+        <updated>2013-08-08T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/08/08/thoughts-on-pushing-wind-power</id>
         <content type="html">&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/posts/2013-08-08/windfarm.jpg&quot; style=&quot;max-width:50%;&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 &lt;p align=&quot;center&quot;&gt;photo courtesy of &lt;a href=&quot;http://www.flickr.com/photos/vattenfall/3581236645/&quot;&gt;Vattenfall&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
@@ -330,7 +330,7 @@ With this publicity, the next step is to raise more money from the public, with 
         <title>OAuth2 Authorization Using Python</title>
         
         <link href="http://ericcj24.github.com/2013/07/29/oauth2-authorization-using-python/"/>
-        <updated>2013-07-29T00:00:00-05:00</updated>
+        <updated>2013-07-29T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/29/oauth2-authorization-using-python</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.&lt;/p&gt;
@@ -370,7 +370,7 @@ With this publicity, the next step is to raise more money from the public, with 
         <title>A Little Note on Douban API</title>
         
         <link href="http://ericcj24.github.com/2013/07/28/a-little-note-on-douban-api/"/>
-        <updated>2013-07-28T00:00:00-05:00</updated>
+        <updated>2013-07-28T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/28/a-little-note-on-douban-api</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;Douban is a popular Chinese social cultural site. It integrates Book reading, movie criticism, city events, and miniblog together. &lt;br /&gt;
@@ -447,7 +447,7 @@ test_douban class&lt;/p&gt;
         <title>A Little Learning on API</title>
         
         <link href="http://ericcj24.github.com/2013/07/24/a-little-learning-on-api/"/>
-        <updated>2013-07-24T00:00:00-05:00</updated>
+        <updated>2013-07-24T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/24/a-little-learning-on-api</id>
         <content type="html">&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;p&gt;&lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; stands for &lt;a href=&quot;http://en.wikipedia.org/wiki/,Application_programming_interface&quot;&gt;Application Programming Interface&lt;/a&gt;. In the information age, there are huge amount of data generating everyday, most of them are being ignored and not substantially recognized for their values. A web &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; enables a third party program to access online data servers like &lt;span class=&quot;caps&quot;&gt;NPR&lt;/span&gt; (national public radio) and sunlight foundation to gain news and political materials. A good idea of reorganizing, analysis those free open information could bring up potential  economic value from what seems to be the chaotic data. In this post, I am discussing some basic programming to get access to NPR&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;, in the future, I may also post some more complex usage, like access your twitter &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; which requires oauth2 authentication.&lt;/p&gt;
@@ -482,7 +482,7 @@ you get information you wanted by, basically, say piece together a unique &lt;sp
         <title>Karaoke Game on Android</title>
         
         <link href="http://ericcj24.github.com/2013/07/05/karaoke-game-android-app/"/>
-        <updated>2013-07-05T00:00:00-05:00</updated>
+        <updated>2013-07-05T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/05/karaoke-game-android-app</id>
         <content type="html">&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png&quot; style=&quot;max-width:50%;&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 &lt;p align=&quot;center&quot;&gt;welcome page&lt;/p&gt;&lt;/p&gt;
@@ -553,7 +553,7 @@ Some key concept may be useful during the signal processing part are: &lt;a href
         <title>Wildfire Monitor System: a project proposal</title>
         
         <link href="http://ericcj24.github.com/2013/07/04/wildfire-monitor-system/"/>
-        <updated>2013-07-04T00:00:00-05:00</updated>
+        <updated>2013-07-04T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/04/wildfire-monitor-system</id>
         <content type="html">&lt;p&gt;Every year we watched from the news about wildfire in western part of the US. It costed lots of money and human resource to fight those vicious natural disaster. After watching the news that 19 firefighters had died during a recent wildfire in Arizona, I started to think about how we could approach this problem from a technology angle.&lt;/p&gt;
 &lt;p&gt;Following graph shows the implementation of my solution to wildfire prevention and monitoring:&lt;/p&gt;
@@ -597,7 +597,7 @@ In base station, human worker would investigate the picture, assess the situatio
         <title>Spectrogram on Android</title>
         
         <link href="http://ericcj24.github.com/2013/07/03/spectrugram-android-app/"/>
-        <updated>2013-07-03T00:00:00-05:00</updated>
+        <updated>2013-07-03T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/03/spectrugram-android-app</id>
         <content type="html">&lt;p&gt;A spectrogram could display several qualities of sound in a graphical way. It could map out the frequency of the sound component, color-code its intensity at each frequency.&lt;/p&gt;
 &lt;p&gt;As part of my Embedded &lt;span class=&quot;caps&quot;&gt;DSP&lt;/span&gt; lab, we built this spectrogram program on Android platform. It records the sound, use &lt;a href=&quot;http://developer.android.com/tools/sdk/ndk/index.html&quot;&gt;Android &lt;span class=&quot;caps&quot;&gt;NDK&lt;/span&gt; package&lt;/a&gt; to embed C code into Android program to process the sound with Fourier Transform and outputs its spectrogram.&lt;/p&gt;
@@ -616,7 +616,7 @@ In base station, human worker would investigate the picture, assess the situatio
         <title>Image Processing on Android</title>
         
         <link href="http://ericcj24.github.com/2013/07/03/image-processing-android-app/"/>
-        <updated>2013-07-03T00:00:00-05:00</updated>
+        <updated>2013-07-03T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/03/image-processing-android-app</id>
         <content type="html">&lt;p&gt;This image processing app features &lt;a href=&quot;http://en.wikipedia.org/wiki/Histogram&quot;&gt;histogram&lt;/a&gt; and &lt;span class=&quot;caps&quot;&gt;RGB&lt;/span&gt; coloring.&lt;/p&gt;
 &lt;p&gt;The application&amp;#8217;s main frame is developed on Android Eclipse platform (Android &lt;span class=&quot;caps&quot;&gt;SDK&lt;/span&gt;), I also used a &lt;span class=&quot;caps&quot;&gt;NDK&lt;/span&gt; package to embed C++ code in &lt;span class=&quot;caps&quot;&gt;JAVA&lt;/span&gt; to do the image processing part.The program has a &lt;a href=&quot;http://opencv.org/&quot;&gt;OpenCV&lt;/a&gt; dependency, as the program calls some computer vision class from the OpenCV library.The successful install and run the program on Android device, a &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.opencv.engine&amp;amp;hl=en&quot;&gt;OpenCV Manager&lt;/a&gt; from Google Play is also needed.&lt;/p&gt;
@@ -637,7 +637,7 @@ This screenshot (pic 2) shows the app with the histogram option chosen, as left 
         <title>Hello World</title>
         
         <link href="http://ericcj24.github.com/2013/07/02/hello-world/"/>
-        <updated>2013-07-02T00:00:00-05:00</updated>
+        <updated>2013-07-02T00:00:00-07:00</updated>
         <id>ericcj24.github.com:/2013/07/02/hello-world</id>
         <content type="html">&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/posts/2013-07-03/JessevanDijk.jpg&quot; style=&quot;max-width:80%;&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;Hello World&lt;/p&gt;
@@ -652,7 +652,7 @@ This screenshot (pic 2) shows the app with the histogram option chosen, as left 
         <title>Shade</title>
         
         <link href="http://ericcj24.github.com/2013/01/01/shade/"/>
-        <updated>2013-01-01T00:00:00-06:00</updated>
+        <updated>2013-01-01T00:00:00-08:00</updated>
         <id>ericcj24.github.com:/2013/01/01/shade</id>
         <content type="html">&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/posts/2013-07-30/gates_title.jpg&quot; style=&quot;max-width:80%;&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 &lt;p align=&quot;center&quot;&gt;photo courtesy: Mary Altaffer/Associated Press&lt;/p&gt;&lt;/p&gt;
