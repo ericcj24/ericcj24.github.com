@@ -3,9 +3,25 @@
     <title>Jian Chen's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2014-05-18T15:53:29-07:00</updated>
+    <updated>2014-05-21T14:35:58-07:00</updated>
     <id>http://ericcj24.github.com/</id>
     
+    
+    <entry>
+        <title>Hummingbird Instant Messenger using mqtt</title>
+        
+        <link href="http://ericcj24.github.com/2014/05/20/hummingbird-instant-messenger/"/>
+        <updated>2014-05-20T00:00:00-07:00</updated>
+        <id>ericcj24.github.com:/2014/05/20/hummingbird-instant-messenger</id>
+        <content type="html">&lt;p&gt;Inspired by a tech talk given by the Facebook messenger developer team, I am developing my own instant messenger app on Android, named hummingbird, it&amp;#8217;s going to be a light weight messenger app that uses mqtt protocol.&lt;/p&gt;
+&lt;p&gt;Still at early stage of setting up the UI, working with the famous open source &lt;a href=&quot;https://github.com/jfeinstein10/SlidingMenu&quot;&gt;slidingmenu&lt;/a&gt; library by Mr Jeremy Feistein. suggestions are welcome!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ericcj24/Hummingbird&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;</content>
+        <author>
+            <name>Jian Chen</name>
+            <uri>ericcj24.github.io</uri>
+        </author>
+    </entry>
     
     <entry>
         <title>Bitstamp API Monitor on Android with Websocket</title>
