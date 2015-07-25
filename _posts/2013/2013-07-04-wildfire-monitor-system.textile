@@ -2,7 +2,7 @@
 layout: post
 title: "Wildfire Monitor System: a project proposal"
 tags: [UAV,google map api]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

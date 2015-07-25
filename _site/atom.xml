@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Jian Chen's Blog</title>
+    <title>CJ's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2015-07-24T18:10:56-07:00</updated>
+    <updated>2015-07-24T19:27:39-07:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -106,7 +106,7 @@ I have also changed the new project to a newer &lt;a href=&quot;https://github.c
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;hello&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So you should realize that there is OAuth1 function in Requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(&lt;br /&gt;
 Of course, prior to make this call, you need to create/register your Twitter app at their developer page, and set app’s authorization to both read &lt;span class=&quot;caps&quot;&gt;AND&lt;/span&gt; write. then, you could generate your token and secret. Be sure to generate token &lt;span class=&quot;caps&quot;&gt;AFTER&lt;/span&gt; you set app’s authorization :D Once you have all consumer_secret, consumer_key, oauth_token, and oauth_token_secret, you are set to go! Cheers!!!&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -144,7 +144,7 @@ Of course, prior to make this call, you need to create/register your Twitter app
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The brief code showed how powerful breadth-first search could be, it could help you traverse through each node of a tree, while help you keep track of the height of the tree. In my recent interview questions, I also encountered a question that ask me to implement an iterator for a general tree class, given by the short timing, I also found that the same breadth-first traverse philosophy could apply to the problem, using a queue structure as iterator, checking if the queue is empty to see if this iterator &amp;#8216;hasNext&amp;#8217;. And in another question, where a brief Facebook Member class is defined, which includes a name and a email address of the user, and a list of his friends (List&lt;Member&gt;), the question was to ask you to write a function that print out user&amp;#8217;s friends first (level 1), then user&amp;#8217;s friends&amp;#8217; friends (level 2), and etc etc. You could still use the queue to help you do a breadth-first search to solve the similar problem.&lt;br /&gt;
 Happy Halloween :D Cheers !&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -218,7 +218,7 @@ Happy Halloween :D Cheers !&lt;/p&gt;</content>
 	&lt;li&gt;Binary Search is O(logn) efficient, as half of the search space is eliminated in each iteration.&lt;/li&gt;
 &lt;/ul&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -288,7 +288,7 @@ Happy Halloween :D Cheers !&lt;/p&gt;</content>
 and in d()&amp;#8217;s exception handling, you could deal with different situations by implement if condition statement, in the example code, I just print out the message for demo purpose.&lt;br /&gt;
 Hope this helps, enjoy :)&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -314,7 +314,7 @@ Hope this helps, enjoy :)&lt;/p&gt;</content>
 &lt;span class=&quot;n&quot;&gt;r_json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# would give the result in json format&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Things to take extra care are: use &amp;#8216;data&amp;#8217; to pass your dictionary when make a &lt;span class=&quot;caps&quot;&gt;POST&lt;/span&gt; call with requests, Multipart-Encoded File should be put in a dictionary and pass to &amp;#8216;files&amp;#8217;.&lt;br /&gt;
 cheers!&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -332,7 +332,7 @@ This brought me to think about how to push public&amp;#8217;s acceptance to wind
 Associations like a cruise trip to Titanic, empire state building to An affair to Remember and Sleepless Seattle, and Casablanca to, well, the movie Casablanca, the unforgettable movies were so successful that it creates a iconic association between the location where the movie was filmed and the story of the movie. Without personally experiencing it, people gradually accept the idea of a new life style, a new product, and eventually, a new technology. I propose that investment should be put together to write, and shot a good movie that associates wind farm with, maybe, say, a everlasting love story. Maybe there could even be a scene taken right in fhe vast farm ground, the  green farm ground filled the picture, our beautiful heroin stands right in front the white blades of wind turbine, and re-united her destined mate who just came back from a serious war fair. The background music is tear-drawing, and in the background of the picture, the entire wind farm is standing there. The moving story and beautiful scene would take influence in popular culture, with wind turbine in it, people would start to accept wind farm as a friendly, and even welcoming image.&lt;br /&gt;
 With this publicity, the next step is to raise more money from the public, with the money, there comes a chance to influence the D.C.. With persuasive lobbyists in D.C. influence Washington&amp;#8217;s law-making in Gay-rights, Affirmative action, Petroleum and Environment fight, the green energy, especially the wind farm technology should equip themselves with a stronger and more influential lobby group. The later could put more persuasion on congressional decision. And by that time, we shall see a Renaissance of the green energy.&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -371,7 +371,7 @@ With this publicity, the next step is to raise more money from the public, with 
 &lt;p&gt;Just remember that first stage uses &lt;span class=&quot;caps&quot;&gt;HTTP&lt;/span&gt; method &lt;span class=&quot;caps&quot;&gt;GET&lt;/span&gt;, second stage uses &lt;span class=&quot;caps&quot;&gt;HTTP&lt;/span&gt; method &lt;span class=&quot;caps&quot;&gt;POST&lt;/span&gt; (that means you have to pass your encoded v2 to data, instead of params!!!)&lt;/p&gt;
 &lt;p&gt;Now you should have your access_token, go nuts!&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -445,7 +445,7 @@ test_douban class&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;multipart/form-data; boundary=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boundary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now you should see the photo you just post on Douban&amp;#8217;s miniblog. Cheers !&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -479,7 +479,7 @@ you get information you wanted by, basically, say piece together a unique &lt;sp
 &lt;p&gt;a little note that, see the line where you call requests, you could use different &lt;span class=&quot;caps&quot;&gt;HTTP&lt;/span&gt; methods just by changing the .get to .post following the requests command.&lt;/p&gt;
 &lt;p&gt;A big data era is ahead of us, now write your &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt; programs, inspire yourself with more ideas of how data could be reorganized to serve our life better :)&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -547,7 +547,7 @@ Some key concept may be useful during the signal processing part are: &lt;a href
 &lt;p&gt;This is really a funny project that combines signal processing theory with practical gaming experience.&lt;/p&gt;
 &lt;p&gt;This is the free choice of the final project of the Embedded Digital Signal Processing (&lt;span class=&quot;caps&quot;&gt;DSP&lt;/span&gt;) lab, the source code of the project could be found &lt;a href=&quot;https://github.com/ericcj24/Karaoke-Game-Android-App&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -591,7 +591,7 @@ In base station, human worker would investigate the picture, assess the situatio
 	&lt;li&gt;implement Google Map &lt;span class=&quot;caps&quot;&gt;API&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -610,7 +610,7 @@ In base station, human worker would investigate the picture, assess the situatio
 &lt;p&gt;The program&amp;#8217;s sampling frequency is set at 8000Hz, thus it could detect highest frequency of 4000Hz without aliasing.&lt;/p&gt;
 &lt;p&gt;This is part of the Embedded Digital Signal Processing (&lt;span class=&quot;caps&quot;&gt;DSP&lt;/span&gt;) lab, the code of this program could be found &lt;a href=&quot;https://github.com/ericcj24/Spectrogram-DSP-Android-App&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -631,7 +631,7 @@ In base station, human worker would investigate the picture, assess the situatio
 This screenshot (pic 2) shows the app with the histogram option chosen, as left half of the image has a clearer detail of the object in the far distance&lt;/p&gt;
 &lt;p&gt;This project is part of the Embedded Digital Signal Processing (&lt;span class=&quot;caps&quot;&gt;DSP&lt;/span&gt;) class, the code could be found &lt;a href=&quot;https://github.com/ericcj24/Image-Processing-Android-App&quot;&gt;here&lt;/a&gt; .&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -646,7 +646,7 @@ This screenshot (pic 2) shows the app with the histogram option chosen, as left 
 &lt;p&gt;Hello World&lt;/p&gt;
 &lt;p&gt;(photo courtesy of &lt;a href=&quot;http://jessevandijkart.com/&quot;&gt;Jesse van Dijk&lt;/a&gt; )&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -666,7 +666,7 @@ This screenshot (pic 2) shows the app with the histogram option chosen, as left 
 Also on &lt;a href=&quot;https://en.wikipedia.org/wiki/Christo_and_Jeanne-Claude#The_Gates&quot;&gt;wikipedia&lt;/a&gt; and &lt;a href=&quot;http://www.nytimes.com/ref/arts/design/GATES-REF.html&quot;&gt;New York Times&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Technology should also create a better living environment and inspire creativity.&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>

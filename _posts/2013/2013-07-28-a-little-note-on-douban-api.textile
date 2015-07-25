@@ -2,7 +2,7 @@
 layout: post
 title: "A Little Note on Douban API"
 tags: [API]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

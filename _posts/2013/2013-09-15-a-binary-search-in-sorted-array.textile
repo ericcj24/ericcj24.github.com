@@ -2,7 +2,7 @@
 layout: post
 title: "Binary Search in Sorted Array"
 tags: [algorithm]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

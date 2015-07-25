@@ -2,7 +2,7 @@
 layout: post
 title: "Spectrogram on Android"
 tags: [Android,DSP,signal processing]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

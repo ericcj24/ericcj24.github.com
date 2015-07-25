@@ -2,7 +2,7 @@
 layout: post
 title: "Thoughts on Pushing Wind Power"
 tags: [wind power, clean energy, wind farm]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

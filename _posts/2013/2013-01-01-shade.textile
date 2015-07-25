@@ -2,7 +2,7 @@
 layout: post
 title: "Shade"
 tags: [future,urban planning, architecture]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 
