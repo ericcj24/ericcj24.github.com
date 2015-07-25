@@ -2,7 +2,7 @@
 layout: post
 title: "Bitstamp API Client on Android"
 tags: [API, Bitstamp, Android]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

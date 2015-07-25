@@ -2,7 +2,7 @@
 layout: post
 title: "Bitstamp API"
 tags: [API, Bitstamp, GUI]
-author_name: Jian Chen
+author_name: CJ
 author_uri: ericcj24.github.io
 ---
 

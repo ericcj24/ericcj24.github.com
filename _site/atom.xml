@@ -3,7 +3,7 @@
     <title>CJ's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2015-07-24T19:27:39-07:00</updated>
+    <updated>2015-07-24T19:46:29-07:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -18,7 +18,7 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/ericcj24/Hummingbird&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Cheers!&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -45,7 +45,7 @@ first time open without internet, would cause transaction db to be empty afterwa
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -65,7 +65,7 @@ I have been exploiting with different designs to approach this problem, &lt;a hr
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
@@ -85,7 +85,7 @@ I have also changed the new project to a newer &lt;a href=&quot;https://github.c
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
 &lt;p&gt;Cheers&lt;/p&gt;</content>
         <author>
-            <name>Jian Chen</name>
+            <name>CJ</name>
             <uri>ericcj24.github.io</uri>
         </author>
     </entry>
