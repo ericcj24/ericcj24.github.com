@@ -26,7 +26,7 @@
 
           <ul id="navigation" class="clearfix">
             <li class='about'><a href='/about/'>About</a></li>
-            <li class="resume"><a href="/Resume_JianChen_2014_3C.pdf" rel="me" class="url">resume</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2015_7B.pdf" rel="me" class="url">resume</a></li>
             <li class='archives'><a href='/archives/'>Archives</a></li>
             <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
             <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
@@ -41,7 +41,7 @@
 <p>As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.</p>
 <h3>Python Demo</h3>
 <p>Taking social website Douban as an example<br />
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">urllib</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">SCOPE</span> <span class="o">=</span> <span class="s">&#39;douban_basic_common,shuo_basic_r,shuo_basic_w&#39;</span> <span class="c"># getting more access by adding more parameters</span>
 <span class="n">APP_KEY</span> <span class="o">=</span> <span class="n">YOUR_APP_KEY</span> <span class="c"># sometimes called API_KEY, obtain upon registration for API</span>
@@ -61,8 +61,7 @@
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">v2</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="c"># should be 200 if everything is right</span>
 <span class="n">r_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="c"># now you could see response in json format, with access_token in it</span>
-</code></pre></div></p>
+<span class="c"># now you could see response in json format, with access_token in it</span></code></pre></div></p>
 <p>Just remember that first stage uses <span class="caps">HTTP</span> method <span class="caps">GET</span>, second stage uses <span class="caps">HTTP</span> method <span class="caps">POST</span> (that means you have to pass your encoded v2 to data, instead of params!!!)</p>
 <p>Now you should have your access_token, go nuts!</p>
 </div>

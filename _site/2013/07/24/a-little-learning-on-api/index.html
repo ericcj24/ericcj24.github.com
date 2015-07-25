@@ -26,7 +26,7 @@
 
           <ul id="navigation" class="clearfix">
             <li class='about'><a href='/about/'>About</a></li>
-            <li class="resume"><a href="/Resume_JianChen_2014_3C.pdf" rel="me" class="url">resume</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2015_7B.pdf" rel="me" class="url">resume</a></li>
             <li class='archives'><a href='/archives/'>Archives</a></li>
             <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
             <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
@@ -42,7 +42,7 @@
 <h3>Python code</h3>
 <p>Python offers wonderful library support for http usage<br />
 Python has several version of urllib library: urllib, urllib2, and <a href="http://docs.python-requests.org/en/latest/">requests</a> (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.</p>
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;apikey&#39;</span><span class="p">:</span> <span class="s">&#39;YOUR API KEY&#39;</span><span class="p">,</span>
 		<span class="s">&#39;phrase&#39;</span><span class="p">:</span> <span class="s">&#39;holiday season&#39;</span><span class="p">,</span>
@@ -54,8 +54,7 @@ Python has several version of urllib library: urllib, urllib2, and <a href="http
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">query_params</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span>
-</code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span></code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
 A little explanation to the code: <br />
 you get information you wanted by, basically, say piece together a unique <span class="caps">URL</span>, then use <span class="caps">HTTP</span> method either &#8216;post&#8217; or &#8216;get&#8217; (basic <span class="caps">HTTP</span> methods are &#8216;get&#8217;, &#8216;post&#8217;, &#8216;put&#8217;, and &#8216;delete&#8217;) you could receive the correspond information you requested, the format of the data package usually are <span class="caps">JSON</span>. Now, the unique <span class="caps">URL</span> we made, through the combination of &#8216;endpoint&#8217; and &#8216;query_params&#8217; is http://capitolwords.org/api/text.json?apikey=YOU_API_KEY&amp;phrase=holiday+season&amp;start_date=2012-12-12&amp;end_date=2012-12-14&amp;state=CA, this is basically telling the server that I am looking for any record, that a California senator spoke at congress between Dec 12, 2012 and Dec 14, 2012, and mentioned the phrase &#8216;holiday season&#8217;, and the server should return the record in <span class="caps">JSON</span> format.</p>
 <p>a little note that, see the line where you call requests, you could use different <span class="caps">HTTP</span> methods just by changing the .get to .post following the requests command.</p>

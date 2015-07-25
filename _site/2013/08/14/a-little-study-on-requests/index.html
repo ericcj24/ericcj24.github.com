@@ -26,7 +26,7 @@
 
           <ul id="navigation" class="clearfix">
             <li class='about'><a href='/about/'>About</a></li>
-            <li class="resume"><a href="/Resume_JianChen_2014_3C.pdf" rel="me" class="url">resume</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2015_7B.pdf" rel="me" class="url">resume</a></li>
             <li class='archives'><a href='/archives/'>Archives</a></li>
             <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
             <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
@@ -40,7 +40,7 @@
     <h3>Overview</h3>
 <p><a href="http://docs.python-requests.org/en/latest/">Requests</a> is a great python lib to handle http calls, it is simple and intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests does not treat http errors as exceptions (it has a status_code to reflect the error, but won&#8217;t actually raise the exception flag). So I implement a customized error class, combined with a if condition statement, I manage to catch the http error as an exception.</p>
 <h3>Python code</h3>
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="k">class</span> <span class="nc">APIError</span><span class="p">(</span><span class="ne">StandardError</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error_code</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error_code</span> <span class="o">=</span> <span class="n">error_code</span> <span class="c">#code</span>
@@ -92,8 +92,7 @@
 	<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">error_code</span>
 	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">error</span>
-	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">request</span>
-</code></pre></div><p>c() is the child function that actually takes care of the requests calling. If in the response dictionary, there is a &#8216;code&#8217; key, (or you could use r.status_code != 200), that means there is a http error, and we could raise our customized error class to pass alone the error information to the mother function (or class), in our case, the function d().<br />
+	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">request</span></code></pre></div><p>c() is the child function that actually takes care of the requests calling. If in the response dictionary, there is a &#8216;code&#8217; key, (or you could use r.status_code != 200), that means there is a http error, and we could raise our customized error class to pass alone the error information to the mother function (or class), in our case, the function d().<br />
 and in d()&#8217;s exception handling, you could deal with different situations by implement if condition statement, in the example code, I just print out the message for demo purpose.<br />
 Hope this helps, enjoy :)</p>
 </div>

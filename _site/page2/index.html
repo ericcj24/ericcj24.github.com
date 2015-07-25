@@ -26,7 +26,7 @@
 
           <ul id="navigation" class="clearfix">
             <li class='about'><a href='/about/'>About</a></li>
-            <li class="resume"><a href="/Resume_JianChen_2014_3C.pdf" rel="me" class="url">resume</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2015_7B.pdf" rel="me" class="url">resume</a></li>
             <li class='archives'><a href='/archives/'>Archives</a></li>
             <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
             <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
@@ -44,7 +44,7 @@
 <p>As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.</p>
 <h3>Python Demo</h3>
 <p>Taking social website Douban as an example<br />
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">urllib</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">SCOPE</span> <span class="o">=</span> <span class="s">&#39;douban_basic_common,shuo_basic_r,shuo_basic_w&#39;</span> <span class="c"># getting more access by adding more parameters</span>
 <span class="n">APP_KEY</span> <span class="o">=</span> <span class="n">YOUR_APP_KEY</span> <span class="c"># sometimes called API_KEY, obtain upon registration for API</span>
@@ -64,8 +64,7 @@
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">v2</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="c"># should be 200 if everything is right</span>
 <span class="n">r_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="c"># now you could see response in json format, with access_token in it</span>
-</code></pre></div></p>
+<span class="c"># now you could see response in json format, with access_token in it</span></code></pre></div></p>
 <p>Just remember that first stage uses <span class="caps">HTTP</span> method <span class="caps">GET</span>, second stage uses <span class="caps">HTTP</span> method <span class="caps">POST</span> (that means you have to pass your encoded v2 to data, instead of params!!!)</p>
 <p>Now you should have your access_token, go nuts!</p>
 
@@ -80,19 +79,18 @@
 From my past couple day&#8217;s experience, though most Chinese social websites open their <span class="caps">API</span>, but they all have different &#8216;tricks&#8217; to successfully send your http post and get commands. I had been confused on Douban&#8217;s photo uploading format for a while, and now I was hoping to share the points you should be careful when uploading your photo using urllib and urllib2 libraries from python.</p>
 <h3>Encode your photo</h3>
 <p>The format to encode the photo to pass to Douban could be very restrict. The following format works:</p>
-<div class="highlight"><pre><code class="xml">------------0x14026e4be72\r\n
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">------------0x14026e4be72\r\n
 Content-Disposition: form-data; name=&quot;text&quot;\r\n\r\nDraw\r\n------------0x14026e4be72\r\n
 Content-Disposition: form-data; name=&quot;image&quot;; filename=&quot;hidden&quot;\r\n
 Content-Length: 2019551\r\n
 Content-Type: image/jpeg\r\n
 Content-Transfer-Encoding: binary\n\r\n
 YOUR_IMAGE BYTES
-\r\n------------0x140297140d1\r\nContent-Disposition: form-data; name=&quot;source&quot;\r\n\r\nYOUR_APP_KEY\r\n------------0x140297140d1--\r\n
-</code></pre></div><p>Things you should really keep in mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file&#8217;s extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. <br />
+\r\n------------0x140297140d1\r\nContent-Disposition: form-data; name=&quot;source&quot;\r\n\r\nYOUR_APP_KEY\r\n------------0x140297140d1--\r\n</code></pre></div><p>Things you should really keep in mind is that Douban needs a clear declaration of Content-Type, you need to restrictedly follow the format. Use mimetypes.types_map would return you a dictionary of types they have, and you could pass your uploading file&#8217;s extension as a key into mimetypes.types_map.get(YOUR_FILE_EXTENTION), and it should return you the correct answer for Content-Type. <br />
 Also, 0&#215;14026e4be72 is just the boundary variable you could generate randomly.</p>
 <p>Following is the python code:<br />
 test_douban class</p>
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">gzip</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">urllib</span><span class="o">,</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">mimetypes</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">gzip</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">urllib</span><span class="o">,</span> <span class="nn">urllib2</span><span class="o">,</span> <span class="nn">mimetypes</span>
 
 <span class="k">def</span> <span class="nf">_encode_multipart</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">):</span>
     <span class="s">&#39; build a multipart/form-data body with randomly generated boundary &#39;</span>
@@ -121,10 +119,9 @@ test_douban class</p>
         <span class="k">return</span> <span class="s">&#39;application/octet-stream&#39;</span>
     <span class="n">ext</span> <span class="o">=</span> <span class="n">url</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="c"># mimetyeps.types_map keys are stored in lower case, ex: &#39;.jpeg&#39;</span>
-    <span class="k">return</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">types_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="s">&#39;application/octet-stream&#39;</span><span class="p">)</span>
-</code></pre></div><p>This version of code is heavily depends on the existed code from internet. I just amended little bit on the encoding part to make the format be accepted by Douban.</p>
+    <span class="k">return</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">types_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="s">&#39;application/octet-stream&#39;</span><span class="p">)</span></code></pre></div><p>This version of code is heavily depends on the existed code from internet. I just amended little bit on the encoding part to make the format be accepted by Douban.</p>
 <p>call test_douban class</p>
-<div class="highlight"><pre><code class="python"><span class="kn">from</span> <span class="nn">test_douban</span> <span class="kn">import</span> <span class="n">_encode_multipart</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">test_douban</span> <span class="kn">import</span> <span class="n">_encode_multipart</span>
 <span class="kn">import</span> <span class="nn">urllib2</span>
 <span class="kn">import</span> <span class="nn">urllib</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://api.douban.com/shuo/v2/statuses/&#39;</span>
@@ -138,8 +135,7 @@ test_douban class</p>
 <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">&#39;Accept-Encoding&#39;</span><span class="p">,</span> <span class="s">&#39;gzip&#39;</span><span class="p">)</span>
 <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">&#39;Authorization&#39;</span><span class="p">,</span> <span class="s">&#39;Bearer </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">access_token</span><span class="p">)</span>
 <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s">&#39;multipart/form-data; boundary=</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">boundary</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-</code></pre></div><p>Now you should see the photo you just post on Douban&#8217;s miniblog. Cheers !</p>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span></code></pre></div><p>Now you should see the photo you just post on Douban&#8217;s miniblog. Cheers !</p>
 
     <small class="meta">July 28, 2013 | <a href='/2013/07/28/a-little-note-on-douban-api/#disqus_thread'>View Comments</a></small>
   </div>
@@ -152,7 +148,7 @@ test_douban class</p>
 <h3>Python code</h3>
 <p>Python offers wonderful library support for http usage<br />
 Python has several version of urllib library: urllib, urllib2, and <a href="http://docs.python-requests.org/en/latest/">requests</a> (which is the third generation of urllib), I highly recommend the usage of requests for its simplicity and easy to understand.</p>
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;apikey&#39;</span><span class="p">:</span> <span class="s">&#39;YOUR API KEY&#39;</span><span class="p">,</span>
 		<span class="s">&#39;phrase&#39;</span><span class="p">:</span> <span class="s">&#39;holiday season&#39;</span><span class="p">,</span>
@@ -164,8 +160,7 @@ Python has several version of urllib library: urllib, urllib2, and <a href="http
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">query_params</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span>
-</code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;num_found&quot;</span><span class="p">]</span></code></pre></div><p>This simple example is excerpt from the wonderful online programming tutorial website, <a href="http://www.codecademy.com/">Codecademy</a> ,they offer various entry level programming practice for different programming language, and they also have some entry level <span class="caps">API</span> practices. <br />
 A little explanation to the code: <br />
 you get information you wanted by, basically, say piece together a unique <span class="caps">URL</span>, then use <span class="caps">HTTP</span> method either &#8216;post&#8217; or &#8216;get&#8217; (basic <span class="caps">HTTP</span> methods are &#8216;get&#8217;, &#8216;post&#8217;, &#8216;put&#8217;, and &#8216;delete&#8217;) you could receive the correspond information you requested, the format of the data package usually are <span class="caps">JSON</span>. Now, the unique <span class="caps">URL</span> we made, through the combination of &#8216;endpoint&#8217; and &#8216;query_params&#8217; is http://capitolwords.org/api/text.json?apikey=YOU_API_KEY&amp;phrase=holiday+season&amp;start_date=2012-12-12&amp;end_date=2012-12-14&amp;state=CA, this is basically telling the server that I am looking for any record, that a California senator spoke at congress between Dec 12, 2012 and Dec 14, 2012, and mentioned the phrase &#8216;holiday season&#8217;, and the server should return the record in <span class="caps">JSON</span> format.</p>
 <p>a little note that, see the line where you call requests, you could use different <span class="caps">HTTP</span> methods just by changing the .get to .post following the requests command.</p>
@@ -188,7 +183,7 @@ you get information you wanted by, basically, say piece together a unique <span 
 Some key concept may be useful during the signal processing part are: <a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> , <a href="http://en.wikipedia.org/wiki/Voice_activity_detection">voice detection</a></p>
 <h3><span class="caps">MATLAB</span> simulation</h3>
 <p><span class="caps">MATLAB</span> main function call</p>
-<div class="highlight"><pre><code class="matlab"><span class="n">numdatablc</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">a4</span><span class="p">)</span><span class="o">/</span><span class="mi">256</span><span class="p">;</span> <span class="c">% number of data blocks, each block has 256 points, store in variable a4</span>
+<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="n">numdatablc</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">a4</span><span class="p">)</span><span class="o">/</span><span class="mi">256</span><span class="p">;</span> <span class="c">% number of data blocks, each block has 256 points, store in variable a4</span>
 <span class="n">pdata1</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numdatablc</span><span class="p">);</span> <span class="c">% initialize return array</span>
 <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">numdatablc</span><span class="o">-</span><span class="mi">1</span>
     <span class="n">temp</span> <span class="p">=</span> <span class="n">a4</span><span class="p">(</span><span class="nb">i</span><span class="o">*</span><span class="mi">256</span><span class="o">+</span><span class="mi">1</span><span class="p">:(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="p">);</span>
@@ -197,9 +192,8 @@ Some key concept may be useful during the signal processing part are: <a href="h
     <span class="k">else</span>
         <span class="n">pdata1</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p><span class="caps">MATLAB</span> function for autocorrelation and pitch finding</p>
-<div class="highlight"><pre><code class="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">proc</span><span class="p">(</span> x,f <span class="p">)</span><span class="w"></span>
+<span class="k">end</span></code></pre></div><p><span class="caps">MATLAB</span> function for autocorrelation and pitch finding</p>
+<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">proc</span><span class="p">(</span> x,f <span class="p">)</span><span class="w"></span>
 <span class="c">% f: sampling frequency</span>
 <span class="c">% filter</span>
 <span class="c">% f_pi/pi = f/4Khz</span>
@@ -216,9 +210,8 @@ Some key concept may be useful during the signal processing part are: <a href="h
 <span class="n">x_filt</span><span class="p">(</span><span class="n">po</span><span class="o">+</span><span class="n">upr</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">[</span><span class="n">xmax1</span><span class="p">,</span><span class="n">pmax</span><span class="p">]</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">x_filt</span><span class="p">);</span>
 <span class="n">y</span> <span class="p">=</span> <span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="n">pmax</span><span class="o">-</span><span class="n">po</span><span class="p">);</span>
-<span class="k">end</span>
-</code></pre></div><p><span class="caps">MATLAB</span> function for voice detection</p>
-<div class="highlight"><pre><code class="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">voidet</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">end</span></code></pre></div><p><span class="caps">MATLAB</span> function for voice detection</p>
+<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">voidet</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
 <span class="n">x2</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
 <span class="n">xs</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">);</span>
 <span class="k">if</span> <span class="n">xs</span> <span class="o">&gt;</span> <span class="mi">50000000</span> <span class="c">%2.56</span>
@@ -226,8 +219,7 @@ Some key concept may be useful during the signal processing part are: <a href="h
 <span class="k">else</span>
     <span class="n">y</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div><p style="text-align:center;"><img src="/images/posts/2013-07-05/piano_test.jpg" style="max-width:50%;" alt="" /><br />
+<span class="k">end</span></code></pre></div><p style="text-align:center;"><img src="/images/posts/2013-07-05/piano_test.jpg" style="max-width:50%;" alt="" /><br />
 <p align="center">showing the calculated pitch from piano recording</p></p>
 <p style="text-align:center;"><img src="/images/posts/2013-07-05/song_processed.jpg" style="max-width:50%;" alt="" /><br />
 <p align="center">alphabet song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p></p>

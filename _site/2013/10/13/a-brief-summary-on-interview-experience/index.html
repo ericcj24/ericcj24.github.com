@@ -26,7 +26,7 @@
 
           <ul id="navigation" class="clearfix">
             <li class='about'><a href='/about/'>About</a></li>
-            <li class="resume"><a href="/Resume_JianChen_2014_3C.pdf" rel="me" class="url">resume</a></li>
+            <li class="resume"><a href="/Resume_JianChen_2015_7B.pdf" rel="me" class="url">resume</a></li>
             <li class='archives'><a href='/archives/'>Archives</a></li>
             <li class="github"><a href="http://github.com/ericcj24" rel='me' class='url'>@github</a></li>
             <!--<li class="acknowledgement"><a href="/acknowledgment/">acknowledgment</a></li>-->
@@ -39,7 +39,7 @@
     <h1>A Brief Reflection on my Interviews</h1>
     <p>I have been doing interviews for a while now, companies I interviewed with range from big names to small inspiring start-ups. Here is a little murmuring of my reflections on it.</p>
 <p>In the data structure class, we know we could traverse a tree in two basic fashion, depth-first and breadth-first, each of the traversing methods has recursive and iterative two ways to implement(well I think every recursive implementation has its iterative way to implement), in the iterative way depth-first traverse we usually use a stack as a helping data structure to traverse through the tree, while in breadth-first, we use a queue (a <span class="caps">FIFO</span> first in first out structure).</p>
-<div class="highlight"><pre><code class="c++"><span class="cp">#include &lt;iostream&gt;</span>
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;iostream&gt;</span>
 <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
 
 <span class="n">breadth_first_traversal</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">croot</span><span class="p">){</span>
@@ -61,8 +61,7 @@
             <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
         <span class="p">}</span>
      <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>The brief code showed how powerful breadth-first search could be, it could help you traverse through each node of a tree, while help you keep track of the height of the tree. In my recent interview questions, I also encountered a question that ask me to implement an iterator for a general tree class, given by the short timing, I also found that the same breadth-first traverse philosophy could apply to the problem, using a queue structure as iterator, checking if the queue is empty to see if this iterator &#8216;hasNext&#8217;. And in another question, where a brief Facebook Member class is defined, which includes a name and a email address of the user, and a list of his friends (List<Member>), the question was to ask you to write a function that print out user&#8217;s friends first (level 1), then user&#8217;s friends&#8217; friends (level 2), and etc etc. You could still use the queue to help you do a breadth-first search to solve the similar problem.<br />
+<span class="p">}</span></code></pre></div><p>The brief code showed how powerful breadth-first search could be, it could help you traverse through each node of a tree, while help you keep track of the height of the tree. In my recent interview questions, I also encountered a question that ask me to implement an iterator for a general tree class, given by the short timing, I also found that the same breadth-first traverse philosophy could apply to the problem, using a queue structure as iterator, checking if the queue is empty to see if this iterator &#8216;hasNext&#8217;. And in another question, where a brief Facebook Member class is defined, which includes a name and a email address of the user, and a list of his friends (List<Member>), the question was to ask you to write a function that print out user&#8217;s friends first (level 1), then user&#8217;s friends&#8217; friends (level 2), and etc etc. You could still use the queue to help you do a breadth-first search to solve the similar problem.<br />
 Happy Halloween :D Cheers !</p>
 </div>
 
