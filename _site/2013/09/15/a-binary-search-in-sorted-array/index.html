@@ -13,7 +13,7 @@
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
 </head>
 
-<body class='blog'>
+<body class=''>
   <div class="container">
     <div class="row">
       <div class="span4 sidebar affix">
@@ -37,11 +37,14 @@
         <div class="well">
           <div class="post">
     <h1>Binary Search in Sorted Array</h1>
-    <h3>Overview</h3>
-<p>This is the code that do a binary search for a value in a sorted array.</p>
-<h3>C++ code</h3>
-<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;iostream&gt;</span>
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+    h3. Overview
+
+This is the code that do a binary search for a value in a sorted array.
+
+h3. C++ code
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">){</span>
 <span class="c1">//sizeof(a)/sizeof(a[0]) would not give the correct size of array, as sizeof(a) here gives the size of pointer, not the entire array!!!</span>
@@ -68,10 +71,10 @@
     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">};</span>
     <span class="kt">int</span> <span class="n">sa</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;size of array a&quot;</span><span class="o">&lt;&lt;</span><span class="n">sa</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"size of array a"</span><span class="o">&lt;&lt;</span><span class="n">sa</span><span class="o">&lt;&lt;</span><span class="sc">'\n'</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sa</span><span class="p">);</span>
     <span class="kt">int</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sa</span><span class="p">);</span>
     <span class="kt">int</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sa</span><span class="p">);</span>
@@ -81,7 +84,7 @@
 
     <span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
     <span class="kt">int</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;size of array b&quot;</span><span class="o">&lt;&lt;</span><span class="n">sb</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"size of array b"</span><span class="o">&lt;&lt;</span><span class="n">sb</span><span class="o">&lt;&lt;</span><span class="sc">'\n'</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sb</span><span class="p">);</span>
     <span class="kt">int</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sb</span> <span class="p">);</span>
     <span class="kt">int</span> <span class="n">b3</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sb</span> <span class="p">);</span>
@@ -90,15 +93,16 @@
     <span class="kt">int</span> <span class="n">b6</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sb</span> <span class="p">);</span>
     <span class="kt">int</span> <span class="n">b7</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">sb</span> <span class="p">);</span>
 	
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a1</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">a2</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">a3</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">a4</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">a5</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">a6</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">b1</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b2</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b3</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b4</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b5</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b6</span><span class="o">&lt;&lt;</span><span class="sc">&#39; &#39;</span><span class="o">&lt;&lt;</span><span class="n">b7</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a1</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">a2</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">a3</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">a4</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">a5</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">a6</span><span class="o">&lt;&lt;</span><span class="sc">'\n'</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">b1</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b2</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b3</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b4</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b5</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b6</span><span class="o">&lt;&lt;</span><span class="sc">' '</span><span class="o">&lt;&lt;</span><span class="n">b7</span><span class="o">&lt;&lt;</span><span class="sc">'\n'</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div><h3>Interesting Notes</h3>
-<ul>
-	<li>sizeof(array), if array was the integer array passed as a parameter, the sizeof(array) would give the actual size of the pointer, not the actual size of the array, as it interprets array as pointer. (C++ pass integer arrays as pointers). so it will be helpful to pass an integer array&#8217;s size info together with the array for child-function&#8217;s convenience.</li>
-	<li>In the binary search phase, while you are jumping around using array&#8217;s index, watch out for the boundary, make sure to cover every corner.</li>
-	<li>Binary Search is O(logn) efficient, as half of the search space is eliminated in each iteration.</li>
-</ul>
+<span class="p">}</span></code></pre></figure>
+
+h3. Interesting Notes
+* sizeof(array), if array was the integer array passed as a parameter, the sizeof(array) would give the actual size of the pointer, not the actual size of the array, as it interprets array as pointer. (C++ pass integer arrays as pointers). so it will be helpful to pass an integer array's size info together with the array for child-function's convenience. 
+* In the binary search phase, while you are jumping around using array's index, watch out for the boundary, make sure to cover every corner.
+* Binary Search is O(logn) efficient, as half of the search space is eliminated in each iteration. 
+
 </div>
 
 <small class="meta">September 15, 2013</small>
