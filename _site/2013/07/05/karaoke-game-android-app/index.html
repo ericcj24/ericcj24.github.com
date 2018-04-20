@@ -13,7 +13,7 @@
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
 </head>
 
-<body class='blog'>
+<body class=''>
   <div class="container">
     <div class="row">
       <div class="span4 sidebar affix">
@@ -37,62 +37,86 @@
         <div class="well">
           <div class="post">
     <h1>Karaoke Game on Android</h1>
-    <p style="text-align:center;"><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png" style="max-width:50%;" alt="" /><br />
-<p align="center">welcome page</p></p>
-<p style="text-align:center;"><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png" style="max-width:50%;" alt="" /><br />
-<p align="center">gaming page</p></p>
-<p style="text-align:center;"><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png" style="max-width:50%;" alt="" /><br />
-<p align="center">end of the game page</p></p>
-<h3>Overview</h3>
-<p>This application is an extension to the original spectrogram application. When people are singing to the microphone, the application calculating the autocorrelation of the sound recorded, it finds the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song (piano would generate accurate pitch, thus this file, which recored and processed with <span class="caps">MATLAB</span>, could be serve as reference). Every matching between human voice and the reference pitch would gain one point, at the end of the song, a total score would be displayed.<br />
-Some key concept may be useful during the signal processing part are: <a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> , <a href="http://en.wikipedia.org/wiki/Voice_activity_detection">voice detection</a></p>
-<h3><span class="caps">MATLAB</span> simulation</h3>
-<p><span class="caps">MATLAB</span> main function call</p>
-<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="n">numdatablc</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">a4</span><span class="p">)</span><span class="o">/</span><span class="mi">256</span><span class="p">;</span> <span class="c">% number of data blocks, each block has 256 points, store in variable a4</span>
-<span class="n">pdata1</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numdatablc</span><span class="p">);</span> <span class="c">% initialize return array</span>
-<span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">numdatablc</span><span class="o">-</span><span class="mi">1</span>
-    <span class="n">temp</span> <span class="p">=</span> <span class="n">a4</span><span class="p">(</span><span class="nb">i</span><span class="o">*</span><span class="mi">256</span><span class="o">+</span><span class="mi">1</span><span class="p">:(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="p">);</span>
-    <span class="k">if</span> <span class="n">voidet</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="c">% do voice detection</span>
-        <span class="n">pdata1</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">proc</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">f</span><span class="p">);</span> <span class="c">% do autocorrelation</span>
+    p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png!
+<p align="center">welcome page</p>
+
+p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png!
+<p align="center">gaming page</p>
+
+p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png!
+<p align="center">end of the game page</p>
+
+h3. Overview
+
+This application is an extension to the original spectrogram application. When people are singing to the microphone, the application calculating the autocorrelation of the sound recorded, it finds the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song (piano would generate accurate pitch, thus this file, which recored and processed with MATLAB, could be serve as reference). Every matching between human voice and the reference pitch would gain one point, at the end of the song, a total score would be displayed.
+Some key concept may be useful during the signal processing part are: "autocorrelation":https://en.wikipedia.org/wiki/Autocorrelation , "voice detection":http://en.wikipedia.org/wiki/Voice_activity_detection
+
+h3. MATLAB simulation
+
+MATLAB main function call
+
+<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="n">numdatablc</span> <span class="o">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">a4</span><span class="p">)/</span><span class="mi">256</span><span class="p">;</span> <span class="c1">% number of data blocks, each block has 256 points, store in variable a4</span>
+<span class="n">pdata1</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numdatablc</span><span class="p">);</span> <span class="c1">% initialize return array</span>
+<span class="k">for</span> <span class="nb">i</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span><span class="n">numdatablc</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">a4</span><span class="p">(</span><span class="nb">i</span><span class="o">*</span><span class="mi">256</span><span class="o">+</span><span class="mi">1</span><span class="p">:(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="p">);</span>
+    <span class="k">if</span> <span class="n">voidet</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="c1">% do voice detection</span>
+        <span class="n">pdata1</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">proc</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">f</span><span class="p">);</span> <span class="c1">% do autocorrelation</span>
     <span class="k">else</span>
-        <span class="n">pdata1</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">pdata1</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">end</span>
-<span class="k">end</span></code></pre></div><p><span class="caps">MATLAB</span> function for autocorrelation and pitch finding</p>
-<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">proc</span><span class="p">(</span> x,f <span class="p">)</span><span class="w"></span>
-<span class="c">% f: sampling frequency</span>
-<span class="c">% filter</span>
-<span class="c">% f_pi/pi = f/4Khz</span>
-<span class="c">% f_pi = 2pi/range</span>
-<span class="c">% range = 8KHz/f = indx_max - indx_sec_max</span>
-<span class="c">% human vocal range: 75 ~ 500 Hz</span>
-<span class="c">% range: 8000/500 ~ 8000/75 =&gt; floor 16 ~ 107</span>
-<span class="n">lowr</span> <span class="p">=</span> <span class="nb">floor</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="mi">500</span><span class="p">);</span> 
-<span class="n">upr</span> <span class="p">=</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="mi">75</span><span class="p">);</span>
-<span class="n">x_cor</span> <span class="p">=</span> <span class="n">xcorr</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="n">x_filt</span> <span class="p">=</span> <span class="n">x_cor</span><span class="p">;</span>
-<span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">po</span><span class="p">]</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">x_filt</span><span class="p">);</span>
-<span class="n">x_filt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lowr</span><span class="o">+</span><span class="n">po</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">x_filt</span><span class="p">(</span><span class="n">po</span><span class="o">+</span><span class="n">upr</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">[</span><span class="n">xmax1</span><span class="p">,</span><span class="n">pmax</span><span class="p">]</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">x_filt</span><span class="p">);</span>
-<span class="n">y</span> <span class="p">=</span> <span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="n">pmax</span><span class="o">-</span><span class="n">po</span><span class="p">);</span>
-<span class="k">end</span></code></pre></div><p><span class="caps">MATLAB</span> function for voice detection</p>
-<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[ y ] <span class="p">=</span><span class="w"> </span><span class="nf">voidet</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
-<span class="n">x2</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">xs</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">);</span>
-<span class="k">if</span> <span class="n">xs</span> <span class="o">&gt;</span> <span class="mi">50000000</span> <span class="c">%2.56</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end</span></code></pre></figure>
+
+
+MATLAB function for autocorrelation and pitch finding
+
+<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[</span> <span class="n">y</span> <span class="p">]</span> <span class="o">=</span> <span class="n">proc</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span><span class="n">f</span> <span class="p">)</span>
+<span class="c1">% f: sampling frequency</span>
+<span class="c1">% filter</span>
+<span class="c1">% f_pi/pi = f/4Khz</span>
+<span class="c1">% f_pi = 2pi/range</span>
+<span class="c1">% range = 8KHz/f = indx_max - indx_sec_max</span>
+<span class="c1">% human vocal range: 75 ~ 500 Hz</span>
+<span class="c1">% range: 8000/500 ~ 8000/75 =&gt; floor 16 ~ 107</span>
+<span class="n">lowr</span> <span class="o">=</span> <span class="nb">floor</span><span class="p">(</span><span class="n">f</span><span class="p">/</span><span class="mi">500</span><span class="p">);</span> 
+<span class="n">upr</span> <span class="o">=</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">f</span><span class="p">/</span><span class="mi">75</span><span class="p">);</span>
+<span class="n">x_cor</span> <span class="o">=</span> <span class="n">xcorr</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">x_filt</span> <span class="o">=</span> <span class="n">x_cor</span><span class="p">;</span>
+<span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">po</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_filt</span><span class="p">);</span>
+<span class="n">x_filt</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lowr</span><span class="o">+</span><span class="n">po</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">x_filt</span><span class="p">(</span><span class="n">po</span><span class="o">+</span><span class="n">upr</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">[</span><span class="n">xmax1</span><span class="p">,</span><span class="n">pmax</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x_filt</span><span class="p">);</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">/(</span><span class="n">pmax</span><span class="o">-</span><span class="n">po</span><span class="p">);</span>
+<span class="k">end</span></code></pre></figure>
+
+
+MATLAB function for voice detection
+
+<figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[</span> <span class="n">y</span> <span class="p">]</span> <span class="o">=</span> <span class="n">voidet</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">);</span>
+<span class="k">if</span> <span class="n">xs</span> <span class="o">&gt;</span> <span class="mi">50000000</span> <span class="c1">%2.56</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">else</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">end</span>
-<span class="k">end</span></code></pre></div><p style="text-align:center;"><img src="/images/posts/2013-07-05/piano_test.jpg" style="max-width:50%;" alt="" /><br />
-<p align="center">showing the calculated pitch from piano recording</p></p>
-<p style="text-align:center;"><img src="/images/posts/2013-07-05/song_processed.jpg" style="max-width:50%;" alt="" /><br />
-<p align="center">alphabet song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p></p>
-<h3>Android app development</h3>
-<p style="text-align:center;"><img src="/images/posts/2013-07-05/flowchart.jpg" style="max-width:50%;" alt="" /></p>
-<p>During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.</p>
-<p>This is really a funny project that combines signal processing theory with practical gaming experience.</p>
-<p>This is the free choice of the final project of the Embedded Digital Signal Processing (<span class="caps">DSP</span>) lab, the source code of the project could be found <a href="https://github.com/ericcj24/Karaoke-Game-Android-App">here</a></p>
+<span class="k">end</span></code></pre></figure>
+
+p=. !{max-width:50%}/images/posts/2013-07-05/piano_test.jpg!
+<p align="center">showing the calculated pitch from piano recording</p>
+
+p=. !{max-width:50%}/images/posts/2013-07-05/song_processed.jpg!
+<p align="center">alphabet song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p>
+
+h3. Android app development
+
+p=. !{max-width:50%}/images/posts/2013-07-05/flowchart.jpg!
+
+During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
+
+This is really a funny project that combines signal processing theory with practical gaming experience.
+
+This is the free choice of the final project of the Embedded Digital Signal Processing (DSP) lab, the source code of the project could be found "here":https://github.com/ericcj24/Karaoke-Game-Android-App
+
 </div>
 
 <small class="meta">July 05, 2013</small>

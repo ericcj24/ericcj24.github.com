@@ -13,7 +13,7 @@
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
 </head>
 
-<body class='blog'>
+<body class=''>
   <div class="container">
     <div class="row">
       <div class="span4 sidebar affix">
@@ -37,38 +37,46 @@
         <div class="well">
           <div class="post">
     <h1>Wildfire Monitor System: a project proposal</h1>
-    <p>Every year we watched from the news about wildfire in western part of the US. It costed lots of money and human resource to fight those vicious natural disaster. After watching the news that 19 firefighters had died during a recent wildfire in Arizona, I started to think about how we could approach this problem from a technology angle.</p>
-<p>Following graph shows the implementation of my solution to wildfire prevention and monitoring:</p>
-<p style="text-align:center;"><img src="/images/posts/2013-07-04/Slide3.jpg" style="max-width:50%;" alt="" /></p>
-<h3>Design Overview</h3>
-<p>My design includes two major modules: the ground computer hub and the <span class="caps">UAV</span> monitor unit.<br />
-The <span class="caps">UAV</span> unit equips with:</p>
-<ul>
-	<li>heat sensor</li>
-	<li><span class="caps">GPS</span> chip</li>
-	<li>microprocessor</li>
-	<li>RF transmitter</li>
-	<li>High resolution camera</li>
-</ul>
-<p>Computer hub features:</p>
-<ul>
-	<li>RF receiver</li>
-	<li>Human monitoring in front of computer</li>
-	<li>Google Map <span class="caps">API</span> to help map out the ground of wildfire</li>
-</ul>
-<h3>Implementation of the project</h3>
-<p>The project would be implemented to each local forestry administration. Each location would have one ground unit, and one <span class="caps">UAV</span> in charge of sweeping a certain area.<br />
-At the beginning stage, <span class="caps">UAV</span> would proceed a preliminary sweep to map-out heat-spots from human habitation, and non-threaten source, the data from the first sweep would be processed with Google Map <span class="caps">API</span> to make a reference map. <br />
-Future routinely sweep data would be compared to this reference map on the fly. If a new heat-spot occurs, the <span class="caps">UAV</span> would take a picture of the scene and send the picture together with the <span class="caps">GPS</span> coordinates back the base station. <br />
-In base station, human worker would investigate the picture, assess the situation and make further decision on either to send out firefighter-jets to put out the fire.</p>
-<h3>Some interesting challenges may occur</h3>
-<ul>
-	<li>how to make more fuel-efficiency UAVs (solar panel, battery)</li>
-	<li>design low energy consume <span class="caps">GPS</span> circuit &amp; microprocessor</li>
-	<li>most market existed <span class="caps">GPS</span> module output standard <span class="caps">NMEA</span> string, convert(A/D) and decipher this information into <span class="caps">GPS</span> coordinates</li>
-	<li>design reliable RF communication between <span class="caps">UAV</span> and base</li>
-	<li>implement Google Map <span class="caps">API</span></li>
-</ul>
+    Every year we watched from the news about wildfire in western part of the US. It costed lots of money and human resource to fight those vicious natural disaster. After watching the news that 19 firefighters had died during a recent wildfire in Arizona, I started to think about how we could approach this problem from a technology angle.
+
+Following graph shows the implementation of my solution to wildfire prevention and monitoring: 
+
+p=. !{max-width:50%}/images/posts/2013-07-04/Slide3.jpg!
+
+h3. Design Overview
+
+
+My design includes two major modules: the ground computer hub and the UAV monitor unit.
+The UAV unit equips with:
+* heat sensor
+* GPS chip
+* microprocessor
+* RF transmitter
+* High resolution camera
+
+Computer hub features:
+* RF receiver
+* Human monitoring in front of computer
+* Google Map API to help map out the ground of wildfire
+
+h3. Implementation of the project
+
+
+The project would be implemented to each local forestry administration. Each location would have one ground unit, and one UAV in charge of sweeping a certain area.
+At the beginning stage, UAV would proceed a preliminary sweep to map-out heat-spots from human habitation, and non-threaten source, the data from the first sweep would be processed with Google Map API to make a reference map. 
+Future routinely sweep data would be compared to this reference map on the fly. If a new heat-spot occurs, the UAV would take a picture of the scene and send the picture together with the GPS coordinates back the base station. 
+In base station, human worker would investigate the picture, assess the situation and make further decision on either to send out firefighter-jets to put out the fire.
+
+h3. Some interesting challenges may occur
+
+* how to make more fuel-efficiency UAVs (solar panel, battery)
+* design low energy consume GPS circuit & microprocessor
+* most market existed GPS module output standard NMEA string, convert(A/D) and decipher this information into GPS coordinates
+* design reliable RF communication between UAV and base
+* implement Google Map API
+ 
+
+
 </div>
 
 <small class="meta">July 04, 2013</small>

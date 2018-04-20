@@ -13,7 +13,7 @@
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
 </head>
 
-<body class='blog'>
+<body class=''>
   <div class="container">
     <div class="row">
       <div class="span4 sidebar affix">
@@ -37,52 +37,55 @@
         <div class="well">
           <div class="post">
     <h1>A Little Study on Requests</h1>
-    <h3>Overview</h3>
-<p><a href="http://docs.python-requests.org/en/latest/">Requests</a> is a great python lib to handle http calls, it is simple and intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests does not treat http errors as exceptions (it has a status_code to reflect the error, but won&#8217;t actually raise the exception flag). So I implement a customized error class, combined with a if condition statement, I manage to catch the http error as an exception.</p>
-<h3>Python code</h3>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="k">class</span> <span class="nc">APIError</span><span class="p">(</span><span class="ne">StandardError</span><span class="p">):</span>
+    h3. Overview
+
+"Requests":http://docs.python-requests.org/en/latest/ is a great python lib to handle http calls, it is simple and intuitive to use. But when actually implement your class, to handle exceptions raised by Requests, the official document seems to be a little slim on it. First, unlike urllib2, Requests does not treat http errors as exceptions (it has a status_code to reflect the error, but won't actually raise the exception flag). So I implement a customized error class, combined with a if condition statement, I manage to catch the http error as an exception.
+
+h3. Python code
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="k">class</span> <span class="nc">APIError</span><span class="p">(</span><span class="nb">StandardError</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error_code</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error_code</span> <span class="o">=</span> <span class="n">error_code</span> <span class="c">#code</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span> <span class="c">#msg</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
-        <span class="ne">StandardError</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="nb">StandardError</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">u&#39;APIError: </span><span class="si">%s</span><span class="s">: </span><span class="si">%s</span><span class="s">, request: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">u'APIError: </span><span class="si">%</span><span class="s">s: </span><span class="si">%</span><span class="s">s, request: </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
     <span class="n">access_token</span> <span class="o">=</span> <span class="n">YOUR_TOKEN</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://api.douban.com/shuo/v2/statuses/&#39;</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;text&#39;</span><span class="p">:</span><span class="s">&#39;hello&#39;</span><span class="p">}</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Authorization&#39;</span><span class="p">:</span><span class="s">&#39;Bearer </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">access_token</span><span class="p">}</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.douban.com/shuo/v2/statuses/'</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="s">'text'</span><span class="p">:</span><span class="s">'hello'</span><span class="p">}</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span><span class="s">'Bearer </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">access_token</span><span class="p">}</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">h</span><span class="p">)</span>
 	<span class="n">rr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 	<span class="c"># example error response</span>
-	<span class="c">#{&quot;msg&quot;:&quot;\u9700\u8981\u767b\u5f55&quot;,&quot;code&quot;:1000}</span>
-	<span class="c">#{&#39;msg&#39;: invalid_access_token: YOUR_TOKEN&#39;, &#39;code&#39;: 103, &#39;request&#39;: &#39;POST /shuo/v2/statuses/&#39;}</span>
-	<span class="k">if</span> <span class="n">rr</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">&#39;code&#39;</span><span class="p">):</span>
-	    <span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="n">rr</span><span class="p">[</span><span class="s">&#39;code&#39;</span><span class="p">],</span> <span class="n">rr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> <span class="n">rr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;request&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+	<span class="c">#{"msg":"\u9700\u8981\u767b\u5f55","code":1000}</span>
+	<span class="c">#{'msg': invalid_access_token: YOUR_TOKEN', 'code': 103, 'request': 'POST /shuo/v2/statuses/'}</span>
+	<span class="k">if</span> <span class="n">rr</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">'code'</span><span class="p">):</span>
+	    <span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="n">rr</span><span class="p">[</span><span class="s">'code'</span><span class="p">],</span> <span class="n">rr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'msg'</span><span class="p">,</span> <span class="s">''</span><span class="p">),</span> <span class="n">rr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'request'</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
 	<span class="k">return</span> <span class="n">rr</span>
     <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-	<span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
-	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u&#39;requests.exceptions.ConnectionError&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;request: </span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">'</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
+	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u'requests.exceptions.ConnectionError'</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">'request: </span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-	<span class="k">print</span> <span class="s">&#39;!</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
-	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u&#39;requests.exceptions.RequestException&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;request: </span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">'!</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
+	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u'requests.exceptions.RequestException'</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">'request: </span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">TooManyRedirects</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-	<span class="k">print</span> <span class="s">&#39;!!</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
-	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u&#39;requests.exceptions.TooManyRedirects&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;request: </span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">'!!</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span><span class="n">e</span> <span class="c"># for debuggin</span>
+	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u'requests.exceptions.TooManyRedirects'</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">'request: </span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">URLRequired</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-	<span class="k">print</span> <span class="s">&#39;!!!url missing </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">e</span> <span class="c"># for debuggin</span>
-	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u&#39;requests.exceptions.URLRequired&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;request: </span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">'!!!url missing </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">e</span> <span class="c"># for debuggin</span>
+	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u'requests.exceptions.URLRequired'</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">'request: </span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="n">url</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">APIError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&#39;customized error&#39;</span>
+        <span class="k">print</span> <span class="s">'customized error'</span>
 	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">error_code</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">error</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
-	<span class="k">print</span> <span class="s">&quot;renren_http_call: unexpected error </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">err</span>
-	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u&#39;unkown code&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span>
+	<span class="k">print</span> <span class="s">"renren_http_call: unexpected error </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span><span class="n">err</span>
+	<span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="s">u'unkown code'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">d</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
@@ -92,9 +95,12 @@
 	<span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">error_code</span>
 	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">error</span>
-	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">request</span></code></pre></div><p>c() is the child function that actually takes care of the requests calling. If in the response dictionary, there is a &#8216;code&#8217; key, (or you could use r.status_code != 200), that means there is a http error, and we could raise our customized error class to pass alone the error information to the mother function (or class), in our case, the function d().<br />
-and in d()&#8217;s exception handling, you could deal with different situations by implement if condition statement, in the example code, I just print out the message for demo purpose.<br />
-Hope this helps, enjoy :)</p>
+	<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">request</span></code></pre></figure>
+
+c() is the child function that actually takes care of the requests calling. If in the response dictionary, there is a 'code' key, (or you could use r.status_code != 200), that means there is a http error, and we could raise our customized error class to pass alone the error information to the mother function (or class), in our case, the function d().
+and in d()'s exception handling, you could deal with different situations by implement if condition statement, in the example code, I just print out the message for demo purpose.
+Hope this helps, enjoy :)
+
 </div>
 
 <small class="meta">August 14, 2013</small>

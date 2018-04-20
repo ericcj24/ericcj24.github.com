@@ -13,7 +13,7 @@
   <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Jian's blog" />
 </head>
 
-<body class='blog'>
+<body class=''>
   <div class="container">
     <div class="row">
       <div class="span4 sidebar affix">
@@ -37,13 +37,19 @@
         <div class="well">
           <div class="post">
     <h1>Spectrogram on Android</h1>
-    <p>A spectrogram could display several qualities of sound in a graphical way. It could map out the frequency of the sound component, color-code its intensity at each frequency.</p>
-<p>As part of my Embedded <span class="caps">DSP</span> lab, we built this spectrogram program on Android platform. It records the sound, use <a href="http://developer.android.com/tools/sdk/ndk/index.html">Android <span class="caps">NDK</span> package</a> to embed C code into Android program to process the sound with Fourier Transform and outputs its spectrogram.</p>
-<p style="text-align:center;"><img src="/images/posts/2013-07-03/spectrogram.png" style="max-width:50%;" alt="" /><br />
-<p align="center">pic 1</p></p>
-<p>pic 1 shows the spectrogram of human voice, with different harmonics and intensity at each harmonic</p>
-<p>The program&#8217;s sampling frequency is set at 8000Hz, thus it could detect highest frequency of 4000Hz without aliasing.</p>
-<p>This is part of the Embedded Digital Signal Processing (<span class="caps">DSP</span>) lab, the code of this program could be found <a href="https://github.com/ericcj24/Spectrogram-DSP-Android-App">here</a></p>
+    A spectrogram could display several qualities of sound in a graphical way. It could map out the frequency of the sound component, color-code its intensity at each frequency.
+
+As part of my Embedded DSP lab, we built this spectrogram program on Android platform. It records the sound, use "Android NDK package":http://developer.android.com/tools/sdk/ndk/index.html to embed C code into Android program to process the sound with Fourier Transform and outputs its spectrogram. 
+
+p=. !{max-width:50%}/images/posts/2013-07-03/spectrogram.png!
+<p align="center">pic 1</p>
+
+pic 1 shows the spectrogram of human voice, with different harmonics and intensity at each harmonic
+
+The program's sampling frequency is set at 8000Hz, thus it could detect highest frequency of 4000Hz without aliasing. 
+
+This is part of the Embedded Digital Signal Processing (DSP) lab, the code of this program could be found "here":https://github.com/ericcj24/Spectrogram-DSP-Android-App
+
 </div>
 
 <small class="meta">July 03, 2013</small>
