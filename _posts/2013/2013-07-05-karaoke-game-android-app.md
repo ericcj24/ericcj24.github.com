@@ -1,0 +1,126 @@
+---
+layout: post
+title: "Karaoke Game on Android"
+tags: [android app]
+author_name: CJ
+author_uri: ericcj24.github.io
+---
+
+![](/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png)
+
+<p align="center">
+welcome page
+
+</p>
+![](/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png)
+
+<p align="center">
+gaming page
+
+</p>
+![](/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png)
+
+<p align="center">
+end of the game page
+
+</p>
+### Overview
+
+This application is an extension to the original spectrogram
+application. When people are singing to the microphone, the application
+calculating the autocorrelation of the sound recorded, it finds the
+pitch in his voice and compare it to the reference. The reference would
+be a recording of the piano play of the same song (piano would generate
+accurate pitch, thus this file, which recored and processed with MATLAB,
+could be serve as reference). Every matching between human voice and the
+reference pitch would gain one point, at the end of the song, a total
+score would be displayed.  
+Some key concept may be useful during the signal processing part are:
+[autocorrelation](https://en.wikipedia.org/wiki/Autocorrelation) ,
+[voice detection](http://en.wikipedia.org/wiki/Voice_activity_detection)
+
+### MATLAB simulation
+
+MATLAB main function call
+
+{% highlight matlab %}
+numdatablc = size(a4)/256; % number of data blocks, each block has 256 points, store in variable a4
+pdata1 = zeros(1,numdatablc); % initialize return array
+for i=0:numdatablc-1
+    temp = a4(i*256+1:(i+1)*256);
+    if voidet(temp) % do voice detection
+        pdata1(i+1) = proc(temp,f); % do autocorrelation
+    else
+        pdata1(i+1) = 0;
+    end
+end
+{% endhighlight %}
+
+MATLAB function for autocorrelation and pitch finding
+
+{% highlight matlab %}
+function [ y ] = proc( x,f )
+% f: sampling frequency
+% filter
+% f_pi/pi = f/4Khz
+% f_pi = 2pi/range
+% range = 8KHz/f = indx_max - indx_sec_max
+% human vocal range: 75 ~ 500 Hz
+% range: 8000/500 ~ 8000/75 => floor 16 ~ 107
+lowr = floor(f/500); 
+upr = ceil(f/75);
+x_cor = xcorr(x);
+x_filt = x_cor;
+[xmax, po] = max(x_filt);
+x_filt(1:lowr+po) = 0;
+x_filt(po+upr+1:end) = 0;
+[xmax1,pmax] = max(x_filt);
+y = f/(pmax-po);
+end
+{% endhighlight %}
+
+MATLAB function for voice detection
+
+{% highlight matlab %}
+function [ y ] = voidet(x)
+x2 = x.^2;
+xs = sum(x2);
+if xs > 50000000 %2.56
+    y = 1;
+else
+    y = 0;
+end
+end
+{% endhighlight %}
+
+![](/images/posts/2013-07-05/piano_test.jpg)
+
+<p align="center">
+showing the calculated pitch from piano recording
+
+</p>
+![](/images/posts/2013-07-05/song_processed.jpg)
+
+<p align="center">
+alphabet song recording processed (show pitch vs. data-time), the middle
+simulation has been manually corrected to be more smooth to serve as
+reference file
+
+</p>
+### Android app development
+
+![](/images/posts/2013-07-05/flowchart.jpg)
+
+During the song playing, lyrics would scrolling though the screen,
+real-time calculated pitch and score displayed on the screen, and
+real-time spectrogram would be scrolling through the right part of the
+screen with the pitch (the fundamental frequency of a human voice,
+usually the lowest frequency among all the harmonics) mapped out on the
+screen in red.
+
+This is really a funny project that combines signal processing theory
+with practical gaming experience.
+
+This is the free choice of the final project of the Embedded Digital
+Signal Processing (DSP) lab, the source code of the project could be
+found [here](https://github.com/ericcj24/Karaoke-Game-Android-App)

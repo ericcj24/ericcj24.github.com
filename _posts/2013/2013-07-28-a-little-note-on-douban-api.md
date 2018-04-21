@@ -1,0 +1,107 @@
+---
+layout: post
+title: "A Little Note on Douban API"
+tags: [API]
+author_name: CJ
+author_uri: ericcj24.github.io
+---
+
+### Overview
+
+Douban is a popular Chinese social cultural site. It integrates Book
+reading, movie criticism, city events, and miniblog together.  
+From my past couple day’s experience, though most Chinese social
+websites open their API, but they all have different ‘tricks’ to
+successfully send your http post and get commands. I had been confused
+on Douban’s photo uploading format for a while, and now I was hoping to
+share the points you should be careful when uploading your photo using
+urllib and urllib2 libraries from python.
+
+### Encode your photo
+
+The format to encode the photo to pass to Douban could be very restrict.
+The following format works:
+
+{% highlight xml %}
+------------0x14026e4be72\r\n
+Content-Disposition: form-data; name="text"\r\n\r\nDraw\r\n------------0x14026e4be72\r\n
+Content-Disposition: form-data; name="image"; filename="hidden"\r\n
+Content-Length: 2019551\r\n
+Content-Type: image/jpeg\r\n
+Content-Transfer-Encoding: binary\n\r\n
+YOUR_IMAGE BYTES
+\r\n------------0x140297140d1\r\nContent-Disposition: form-data; name="source"\r\n\r\nYOUR_APP_KEY\r\n------------0x140297140d1--\r\n
+{% endhighlight %}
+
+Things you should really keep in mind is that Douban needs a clear
+declaration of Content-Type, you need to restrictedly follow the format.
+Use mimetypes.types\_map would return you a dictionary of types they
+have, and you could pass your uploading file’s extension as a key into
+mimetypes.types\_map.get(YOUR\_FILE\_EXTENTION), and it should return
+you the correct answer for Content-Type.  
+Also, 0x14026e4be72 is just the boundary variable you could generate
+randomly.
+
+Following is the python code:  
+test\_douban class
+
+{% highlight python %}
+import gzip, time, urllib, urllib2, mimetypes
+
+def _encode_multipart(**kw):
+    ' build a multipart/form-data body with randomly generated boundary '
+    boundary = '----------%s' % hex(int(time.time() * 1000))
+    data = []
+    for k, v in kw.iteritems():
+        data.append('--%s' % boundary)
+        if hasattr(v, 'read'):
+            # file-like object:
+            filename = getattr(v, 'name', '')
+            content = v.read()
+            data.append('Content-Disposition: form-data; name="%s"; filename="hidden"' % k)
+            data.append('Content-Length: %d' % len(content))
+            data.append('Content-Type: %s' % _guess_content_type(filename))
+            data.append('Content-Transfer-Encoding: binary\n')
+            data.append(content)
+        else:
+            data.append('Content-Disposition: form-data; name="%s"\r\n' % k)
+            data.append(v.encode('utf-8') if isinstance(v, unicode) else v)
+    data.append('--%s--\r\n' % boundary)
+    return '\r\n'.join(data), boundary
+
+def _guess_content_type(url):
+    n = url.rfind('.')
+    if n==(-1):
+        return 'application/octet-stream'
+    ext = url[n:].lower()
+    # mimetyeps.types_map keys are stored in lower case, ex: '.jpeg'
+    return mimetypes.types_map.get(ext, 'application/octet-stream')
+
+{% endhighlight %}
+
+This version of code is heavily depends on the existed code from
+internet. I just amended little bit on the encoding part to make the
+format be accepted by Douban.
+
+call test\_douban class
+
+{% highlight python %}
+from test_douban import _encode_multipart
+import urllib2
+import urllib
+url = 'https://api.douban.com/shuo/v2/statuses/'
+access_token = YOUR_ACCESS_TOKEN
+fh = open(PATH_TO_YOUR_IMAGE_FILE,'rb')
+status = THINGS_YOU_WANT_TO_SAY
+params = {'text':status, 'image':fh, 'source':YOUR_APP_KEY}
+coded_params, boundary = _encode_multipart(**params)
+# after previews call, you have the encoded photo, and a random generated boundary
+req = urllib2.Request(url, data=coded_params)
+req.add_header('Accept-Encoding', 'gzip')
+req.add_header('Authorization', 'Bearer %s' % access_token)
+req.add_header('Content-Type', 'multipart/form-data; boundary=%s' % boundary)
+resp = urllib2.urlopen(req)
+{% endhighlight %}
+
+Now you should see the photo you just post on Douban’s miniblog. Cheers
+!
