@@ -37,13 +37,18 @@
         <div class="well">
           <div class="post">
     <h1>OAuth2 Authorization Using Python</h1>
-    h3. Overview
+    <h3 id="overview">Overview</h3>
 
-As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.
+<p>As promised I am going to talk about getting the authorization from
+OAuth2. OAuth2 is a popular authorization protocol used by website like
+twitter, and other social websites in their APIs. Basic OAuth2
+authorization involves two stages: first obtain authorization code,
+second obtain access_token.</p>
 
-h3. Python Demo
+<h3 id="python-demo">Python Demo</h3>
 
-Taking social website Douban as an example
+<p>Taking social website Douban as an example</p>
+
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">SCOPE</span> <span class="o">=</span> <span class="s">'douban_basic_common,shuo_basic_r,shuo_basic_w'</span> <span class="c"># getting more access by adding more parameters</span>
@@ -66,9 +71,11 @@ Taking social website Douban as an example
 </span><span class="s">r_json = r.json()</span><span class="err">
 </span><span class="s"># now you could see response in json format, with access_token in it</span></code></pre></figure>
 
-Just remember that first stage uses HTTP method GET, second stage uses HTTP method POST (that means you have to pass your encoded v2 to data, instead of params!!!)
+<p>Just remember that first stage uses HTTP method GET, second stage uses
+HTTP method POST (that means you have to pass your encoded v2 to data,
+instead of params!!!)</p>
 
-Now you should have your access_token, go nuts!
+<p>Now you should have your access_token, go nuts!</p>
 
 </div>
 

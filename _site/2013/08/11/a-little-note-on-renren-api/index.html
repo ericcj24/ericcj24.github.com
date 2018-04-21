@@ -37,11 +37,13 @@
         <div class="well">
           <div class="post">
     <h1>A Little Note on Renren API</h1>
-    h3. Overview
+    <h3 id="overview">Overview</h3>
 
-Renren is popular Chinese social website. This post introduces an easy way, and yet different from Douban's photo uploading previews introduced, to upload photo to your Renren albums with Python requests.
+<p>Renren is popular Chinese social website. This post introduces an easy
+way, and yet different from Douban’s photo uploading previews
+introduced, to upload photo to your Renren albums with Python requests.</p>
 
-h3. Python code
+<h3 id="python-code">Python code</h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="n">YOUR_ACCESS_TOKEN</span>
@@ -54,8 +56,10 @@ h3. Python code
 <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="c"># would give you the http call result</span>
 <span class="n">r_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="c"># would give the result in json format</span></code></pre></figure>
 
-Things to take extra care are: use 'data' to pass your dictionary when make a POST call with requests, Multipart-Encoded File should be put in a dictionary and pass to 'files'.
-cheers!
+<p>Things to take extra care are: use ‘data’ to pass your dictionary when
+make a POST call with requests, Multipart-Encoded File should be put in
+a dictionary and pass to ‘files’.<br />
+cheers!</p>
 
 </div>
 

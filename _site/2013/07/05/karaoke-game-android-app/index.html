@@ -37,23 +37,42 @@
         <div class="well">
           <div class="post">
     <h1>Karaoke Game on Android</h1>
-    p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png!
-<p align="center">welcome page</p>
+    <p><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-13.png" alt="" /></p>
 
-p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png!
-<p align="center">gaming page</p>
+<p align="center">
+welcome page
 
-p=. !{max-width:50%}/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png!
-<p align="center">end of the game page</p>
+</p>
+<p><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-19-34.png" alt="" /></p>
 
-h3. Overview
+<p align="center">
+gaming page
 
-This application is an extension to the original spectrogram application. When people are singing to the microphone, the application calculating the autocorrelation of the sound recorded, it finds the pitch in his voice and compare it to the reference. The reference would be a recording of the piano play of the same song (piano would generate accurate pitch, thus this file, which recored and processed with MATLAB, could be serve as reference). Every matching between human voice and the reference pitch would gain one point, at the end of the song, a total score would be displayed.
-Some key concept may be useful during the signal processing part are: "autocorrelation":https://en.wikipedia.org/wiki/Autocorrelation , "voice detection":http://en.wikipedia.org/wiki/Voice_activity_detection
+</p>
+<p><img src="/images/posts/2013-07-05/Screenshot_2013-07-05-20-32-27.png" alt="" /></p>
 
-h3. MATLAB simulation
+<p align="center">
+end of the game page
 
-MATLAB main function call
+</p>
+<h3 id="overview">Overview</h3>
+
+<p>This application is an extension to the original spectrogram
+application. When people are singing to the microphone, the application
+calculating the autocorrelation of the sound recorded, it finds the
+pitch in his voice and compare it to the reference. The reference would
+be a recording of the piano play of the same song (piano would generate
+accurate pitch, thus this file, which recored and processed with MATLAB,
+could be serve as reference). Every matching between human voice and the
+reference pitch would gain one point, at the end of the song, a total
+score would be displayed.<br />
+Some key concept may be useful during the signal processing part are:
+<a href="https://en.wikipedia.org/wiki/Autocorrelation">autocorrelation</a> ,
+<a href="http://en.wikipedia.org/wiki/Voice_activity_detection">voice detection</a></p>
+
+<h3 id="matlab-simulation">MATLAB simulation</h3>
+
+<p>MATLAB main function call</p>
 
 <figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="n">numdatablc</span> <span class="o">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">a4</span><span class="p">)/</span><span class="mi">256</span><span class="p">;</span> <span class="c1">% number of data blocks, each block has 256 points, store in variable a4</span>
 <span class="n">pdata1</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numdatablc</span><span class="p">);</span> <span class="c1">% initialize return array</span>
@@ -66,8 +85,7 @@ MATLAB main function call
     <span class="k">end</span>
 <span class="k">end</span></code></pre></figure>
 
-
-MATLAB function for autocorrelation and pitch finding
+<p>MATLAB function for autocorrelation and pitch finding</p>
 
 <figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[</span> <span class="n">y</span> <span class="p">]</span> <span class="o">=</span> <span class="n">proc</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span><span class="n">f</span> <span class="p">)</span>
 <span class="c1">% f: sampling frequency</span>
@@ -88,8 +106,7 @@ MATLAB function for autocorrelation and pitch finding
 <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">/(</span><span class="n">pmax</span><span class="o">-</span><span class="n">po</span><span class="p">);</span>
 <span class="k">end</span></code></pre></figure>
 
-
-MATLAB function for voice detection
+<p>MATLAB function for voice detection</p>
 
 <figure class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="p">[</span> <span class="n">y</span> <span class="p">]</span> <span class="o">=</span> <span class="n">voidet</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
@@ -101,21 +118,37 @@ MATLAB function for voice detection
 <span class="k">end</span>
 <span class="k">end</span></code></pre></figure>
 
-p=. !{max-width:50%}/images/posts/2013-07-05/piano_test.jpg!
-<p align="center">showing the calculated pitch from piano recording</p>
+<p><img src="/images/posts/2013-07-05/piano_test.jpg" alt="" /></p>
 
-p=. !{max-width:50%}/images/posts/2013-07-05/song_processed.jpg!
-<p align="center">alphabet song recording processed (show pitch vs. data-time), the middle simulation has been manually corrected to be more smooth to serve as reference file</p>
+<p align="center">
+showing the calculated pitch from piano recording
 
-h3. Android app development
+</p>
+<p><img src="/images/posts/2013-07-05/song_processed.jpg" alt="" /></p>
 
-p=. !{max-width:50%}/images/posts/2013-07-05/flowchart.jpg!
+<p align="center">
+alphabet song recording processed (show pitch vs. data-time), the middle
+simulation has been manually corrected to be more smooth to serve as
+reference file
 
-During the song playing, lyrics would scrolling though the screen, real-time calculated pitch and score displayed on the screen, and real-time spectrogram would be scrolling through the right part of the screen with the pitch (the fundamental frequency of a human voice, usually the lowest frequency among all the harmonics) mapped out on the screen in red.
+</p>
+<h3 id="android-app-development">Android app development</h3>
 
-This is really a funny project that combines signal processing theory with practical gaming experience.
+<p><img src="/images/posts/2013-07-05/flowchart.jpg" alt="" /></p>
 
-This is the free choice of the final project of the Embedded Digital Signal Processing (DSP) lab, the source code of the project could be found "here":https://github.com/ericcj24/Karaoke-Game-Android-App
+<p>During the song playing, lyrics would scrolling though the screen,
+real-time calculated pitch and score displayed on the screen, and
+real-time spectrogram would be scrolling through the right part of the
+screen with the pitch (the fundamental frequency of a human voice,
+usually the lowest frequency among all the harmonics) mapped out on the
+screen in red.</p>
+
+<p>This is really a funny project that combines signal processing theory
+with practical gaming experience.</p>
+
+<p>This is the free choice of the final project of the Embedded Digital
+Signal Processing (DSP) lab, the source code of the project could be
+found <a href="https://github.com/ericcj24/Karaoke-Game-Android-App">here</a></p>
 
 </div>
 
