@@ -3,7 +3,7 @@
     <title>CJ's Blog</title>
     <link href="http://ericcj24.github.com/atom.xml" rel="self"/>
     <link href="http://ericcj24.github.com/"/>
-    <updated>2018-04-21T14:47:15+01:00</updated>
+    <updated>2018-04-21T14:57:47+01:00</updated>
     <id>http://ericcj24.github.com/</id>
     
     
@@ -100,16 +100,16 @@ library&lt;/a&gt; to make http connection,
 uses &lt;a href=&quot;http://jackson.codehaus.org/&quot;&gt;Jackson&lt;/a&gt; to bind JSON data to Java
 class and/or generic containers.&lt;/p&gt;
 
-&lt;strike&gt;The app also uses [jmathplot
-libary](https://code.google.com/p/jmathplot/) to help plot the
-data.&lt;/strike&gt;
-&lt;p&gt;After careful considration, I switched my ploting tool to
+&lt;p&gt;&lt;del&gt;The app also uses &lt;a href=&quot;https://code.google.com/p/jmathplot/&quot;&gt;jmathplot
+libary&lt;/a&gt; to help plot the
+data.&lt;/del&gt;&lt;br /&gt;
+After some considration, I switched my ploting tool to
 &lt;a href=&quot;http://www.jfree.org/jfreechart/&quot;&gt;JFreeChart&lt;/a&gt; for its detailed
 documentation.&lt;/p&gt;
 
-&lt;strike&gt;Find it at my project
-[repo](https://github.com/ericcj24/bitstamp.api.monitor) &lt;/strike&gt;
-&lt;p&gt;I have also changed the new project to a newer
+&lt;p&gt;&lt;del&gt;Find it at my project
+&lt;a href=&quot;https://github.com/ericcj24/bitstamp.api.monitor&quot;&gt;repo&lt;/a&gt;.&lt;/del&gt;
+I have also changed the new project to a newer
 &lt;a href=&quot;https://github.com/ericcj24/bitstamp.api.monitor1&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I will try to add more functionality in project in the following days :)&lt;/p&gt;
