@@ -37,10 +37,17 @@
         <div class="well">
           <div class="post">
     <h1>Twitter API</h1>
-    Twitter is a little vague in terms of how you could make your first ‘hello world’ post, that’s why I am writing this post for your convenient.
+    <p>Twitter is a little vague in terms of how you could make your first
+‘hello world’ post, that’s why I am writing this post for your
+convenient.</p>
 
-If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this "dude":http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/ ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.
-
+<p>If you, like me, always like to write a python script with Requests
+library on the spot just to quick-test some new APIs you encountered,
+you could be, just like me, puzzled by Twitter API’s authentication.
+Thanks to this
+<a href="http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/">dude</a>
+’s hint, I finally made a successful Twitter post (a tweet) through my
+what was supposed to be simple python script.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
@@ -49,9 +56,16 @@ If you, like me, always like to write a python script with Requests library on t
 <span class="n">auth</span><span class="o">=</span><span class="n">OAuth1</span><span class="p">(</span><span class="s">'CONSUMER_KEY'</span><span class="p">,</span><span class="n">client_secret</span><span class="o">=</span><span class="s">'CONSUMER SECRET'</span><span class="p">,</span><span class="n">resource_owner_key</span><span class="o">=</span><span class="s">'OAUTH TOKEN'</span><span class="p">,</span><span class="n">resource_owner_secret</span><span class="o">=</span><span class="s">'OAUTH TOKEN SECRET'</span><span class="p">)</span>
 <span class="n">r</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'status'</span><span class="p">:</span><span class="s">'hello'</span><span class="p">},</span><span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span></code></pre></figure>
 
-
-So you should realize that there is OAuth1 function in Requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(
-Of course, prior to make this call, you need to create/register your Twitter app at their developer page, and set app’s authorization to both read AND write. then, you could generate your token and secret. Be sure to generate token AFTER you set app’s authorization :D Once you have all consumer_secret, consumer_key, oauth_token, and oauth_token_secret, you are set to go! Cheers!!!
+<p>So you should realize that there is OAuth1 function in Requests that
+helps you encode all the authorization parameters. And it seems like
+Twitter only takes that for a successful authorization. otherwise you
+get a 400 error saying not valid authorization :(<br />
+Of course, prior to make this call, you need to create/register your
+Twitter app at their developer page, and set app’s authorization to both
+read AND write. then, you could generate your token and secret. Be sure
+to generate token AFTER you set app’s authorization :D Once you have all
+consumer_secret, consumer_key, oauth_token, and oauth_token_secret,
+you are set to go! Cheers!!!</p>
 
 </div>
 

@@ -37,11 +37,11 @@
         <div class="well">
           <div class="post">
     <h1>Binary Search in Sorted Array</h1>
-    h3. Overview
+    <h3 id="overview">Overview</h3>
 
-This is the code that do a binary search for a value in a sorted array.
+<p>This is the code that do a binary search for a value in a sorted array.</p>
 
-h3. C++ code
+<h3 id="c-code">C<span class="underline"></span> code</h3>
 
 <figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;iostream&gt;
 </span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
@@ -98,10 +98,20 @@ h3. C++ code
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-h3. Interesting Notes
-* sizeof(array), if array was the integer array passed as a parameter, the sizeof(array) would give the actual size of the pointer, not the actual size of the array, as it interprets array as pointer. (C++ pass integer arrays as pointers). so it will be helpful to pass an integer array's size info together with the array for child-function's convenience. 
-* In the binary search phase, while you are jumping around using array's index, watch out for the boundary, make sure to cover every corner.
-* Binary Search is O(logn) efficient, as half of the search space is eliminated in each iteration. 
+<h3 id="interesting-notes">Interesting Notes</h3>
+
+<ul>
+  <li>sizeof(array), if array was the integer array passed as a parameter,
+the sizeof(array) would give the actual size of the pointer, not the
+actual size of the array, as it interprets array as pointer. (C<span class="underline"></span> pass integer arrays as pointers). so it
+will be helpful to pass an integer array’s size info together with
+the array for child-function’s convenience.</li>
+  <li>In the binary search phase, while you are jumping around using
+array’s index, watch out for the boundary, make sure to cover every
+corner.</li>
+  <li>Binary Search is O (logn) efficient, as half of the search space is
+eliminated in each iteration.</li>
+</ul>
 
 </div>
 
