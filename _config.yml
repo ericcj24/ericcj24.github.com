@@ -1,7 +1,0 @@
-permalink: pretty
-paginate: 10
-exclude: ['Rakefile', 'Gemfile', 'Gemfile.lock', 'config.rb', 'run']
-
-production_url: http://ericcj24.github.io
-
-markdown: kramdown
