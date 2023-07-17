@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Twitter API"
+tags: [API]
+author_name: CJ
+author_uri: ericcj24.github.io
+---
+
+Twitter is a little vague in terms of how you could make your first ‘hello world’ post, that’s why I am writing this post for your convenient.
+
+If you, like me, always like to write a python script with Requests library on the spot just to quick-test some new APIs you encountered, you could be, just like me, puzzled by Twitter API’s authentication. Thanks to this "dude":http://thomassileo.com/blog/2013/01/25/using-twitter-rest-api-v1-dot-1-with-python/ ’s hint, I finally made a successful Twitter post (a tweet) through my what was supposed to be simple python script.
+
+
+{% highlight python %}
+import requests
+from requests_oauthlib import OAuth1
+url='https://api.twitter.com/1.1/statuses/update.json'
+#i am making a tweet http post call
+auth=OAuth1('CONSUMER_KEY',client_secret='CONSUMER SECRET',resource_owner_key='OAUTH TOKEN',resource_owner_secret='OAUTH TOKEN SECRET')
+r=requests.post(u,data={'status':'hello'},auth=auth)
+{% endhighlight %}
+
+
+So you should realize that there is OAuth1 function in Requests that helps you encode all the authorization parameters. And it seems like Twitter only takes that for a successful authorization. otherwise you get a 400 error saying not valid authorization :(
+Of course, prior to make this call, you need to create/register your Twitter app at their developer page, and set app’s authorization to both read AND write. then, you could generate your token and secret. Be sure to generate token AFTER you set app’s authorization :D Once you have all consumer_secret, consumer_key, oauth_token, and oauth_token_secret, you are set to go! Cheers!!!

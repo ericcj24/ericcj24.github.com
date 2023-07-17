@@ -1,0 +1,62 @@
+---
+layout: post
+title: "A Brief Reflection on my Interviews"
+tags: [algorithm]
+author_name: CJ
+author_uri: ericcj24.github.io
+---
+
+I have been doing interviews for a while now, companies I interviewed
+with range from big names to small inspiring start-ups. Here is a little
+murmuring of my reflections on it.
+
+In the data structure class, we know we could traverse a tree in two
+basic fashion, depth-first and breadth-first, each of the traversing
+methods has recursive and iterative two ways to implement(well I think
+every recursive implementation has its iterative way to implement), in
+the iterative way depth-first traverse we usually use a stack as a
+helping data structure to traverse through the tree, while in
+breadth-first, we use a queue (a FIFO first in first out structure).
+
+{% highlight c++ %}
+#include <iostream>
+using std::cout;
+
+breadth_first_traversal(Node* croot){
+    queue<Node*> q;
+    Node* level;
+    int height;
+    if (!croot){
+        q.enqueue(croot);
+        q.enqueue(level);
+        while (!q.empty()){
+            Node* temp = q.dequeue();
+            if (temp==level){
+                height++;
+		q.enqueue(level);	
+                temp = q.dequeue();
+            }
+            cout<<temp->value<<' ';
+            if(!temp->left) q.enqueue(temp->left);
+            if(!temp->right) q.enqueue(temp->right);
+        }
+     }
+}
+
+{% endhighlight %}
+
+The brief code showed how powerful breadth-first search could be, it
+could help you traverse through each node of a tree, while help you keep
+track of the height of the tree. In my recent interview questions, I
+also encountered a question that ask me to implement an iterator for a
+general tree class, given by the short timing, I also found that the
+same breadth-first traverse philosophy could apply to the problem, using
+a queue structure as iterator, checking if the queue is empty to see if
+this iterator ‘hasNext’. And in another question, where a brief Facebook
+Member class is defined, which includes a name and a email address of
+the user, and a list of his friends (List<Member>), the question was to
+ask you to write a function that print out user’s friends first (level
+1), then user’s friends’ friends (level 2), and etc etc. You could still
+use the queue to help you do a breadth-first search to solve the similar
+problem.  
+Happy Halloween :D Cheers !

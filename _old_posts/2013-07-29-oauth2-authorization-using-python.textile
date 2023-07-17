@@ -1,0 +1,43 @@
+---
+layout: post
+title: "OAuth2 Authorization Using Python"
+tags: [API]
+author_name: CJ
+author_uri: ericcj24.github.io
+---
+
+
+h3. Overview
+
+As promised I am going to talk about getting the authorization from OAuth2. OAuth2 is a popular authorization protocol used by website like twitter, and other social websites in their APIs. Basic OAuth2 authorization involves two stages: first obtain authorization code, second obtain access_token.
+
+h3. Python Demo
+
+Taking social website Douban as an example
+{% highlight python %}
+import urllib
+import requests
+SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w' # getting more access by adding more parameters
+APP_KEY = YOUR_APP_KEY # sometimes called API_KEY, obtain upon registration for API
+APP_SECRET = YOUR_APP_SECRET # sometimes called API_SECRET, obtain upon registration for API
+REDIRECT_URI = YOUR_CALLBACK_URI # this http address would be the address to receive authorization code, and access_token returned from website
+DOUBAN_RESPONSE_TYPE = 'code'
+DOUBAN_AUTHORIZATION_URI = "https://www.douban.com/service/auth2/"
+DOUBAN_ACCESS_TOKEN_URI = "https://www.douban.com/service/auth2/"
+v = {'client_id':APP_KEY, 'redirect_uri':REDIRECT_URI,'response_type':'code','scope':SCOPE}
+params = urllib.urlencode(v)
+url = DOUBAN_AUTHORIZATION_URI+params
+# now, go to your browser, go to your generated url, click on accept authorization, then you would be redirect to REDIRECT_URI+code=YOUR_AUTHORIZATION_CODE, the YOUR_AUTHORIZATION_CODE would be appended at the end of that address
+code = YOUR_AUTHORIZATION_CODE
+# up to this point, you finished first step, obtain authorization code
+v2 = {'client_id':APP_KEY, 'client_secret':APP_SECRET','redirect_uri':REDIRECT_URI, 'grant_type':'authorization_code','code':code}
+url2 = DOUBAN_ACCESS_TOKEN_URI
+r = requests.post(url2,data = v2)
+r.status_code # should be 200 if everything is right
+r_json = r.json()
+# now you could see response in json format, with access_token in it
+{% endhighlight %}
+
+Just remember that first stage uses HTTP method GET, second stage uses HTTP method POST (that means you have to pass your encoded v2 to data, instead of params!!!)
+
+Now you should have your access_token, go nuts!
